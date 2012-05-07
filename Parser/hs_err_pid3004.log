@@ -1,0 +1,136 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  EXCEPTION_ACCESS_VIOLATION (0xc0000005) at pc=0x000000006d8a5f0a, pid=3004, tid=2448
+#
+# JRE version: 6.0_24-b07
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (19.1-b02 mixed mode windows-amd64 compressed oops)
+# Problematic frame:
+# V  [jvm.dll+0xb5f0a]
+#
+# If you would like to submit a bug report, please visit:
+#   http://java.sun.com/webapps/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x0000000006667800):  VMThread [stack: 0x00000000070c0000,0x00000000071c0000] [id=2448]
+
+siginfo: ExceptionCode=0xc0000005, reading address 0x0000000000389818
+
+Registers:
+RAX=0x0000000000389800, RBX=0x000000077b7717d8, RCX=0x0000000000000003, RDX=0x00000000ef6ee280
+RSP=0x00000000071beed0, RBP=0x000000000000000c, RSI=0x000000077b7717d8, RDI=0x000000077b77186f
+R8=0x0000000000363b8a, R9=0x00000000004a44a0, R10=0x0000000000000001, R11=0xfffffffffc788000
+R12=0x0000000000000017, R13=0x0000000000000017, R14=0x000000000000030e, R15=0x00000000071bf100
+RIP=0x000000006d8a5f0a, EFLAGS=0x0000000000010206
+
+Register to memory mapping:
+
+RAX=0x0000000000389800
+0x0000000000389800 is pointing to unknown location
+
+RBX=0x000000077b7717d8
+
+[error occurred during error reporting (printing registers, top of stack, instructions near pc), id 0xc0000005]
+
+Stack: [0x00000000070c0000,0x00000000071c0000],  sp=0x00000000071beed0,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [jvm.dll+0xb5f0a]
+
+JavaThread 0x0000000006731000 (nid = 2476) was being processed
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+v  ~RuntimeStub::_new_instance_Java
+J  com.sun.tools.javac.tree.JCTree.toString()Ljava/lang/String;
+
+[error occurred during error reporting (printing target Java thread stack), id 0xc0000005]
+
+VM_Operation (0x000000000827e280): ParallelGCFailedAllocation, mode: safepoint, requested by thread 0x0000000006731000
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00000000005fb800 
+[error occurred during error reporting (printing all threads), id 0xc0000005]
+
+VM state:at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread:  ([mutex/lock_event])
+[0x00000000005f9da0] Threads_lock - owner thread: 0x0000000006667800
+[0x00000000005fa2a0] Heap_lock - owner thread: 0x0000000006731000
+
+Heap
+ PSYoungGen      total 46912K, used 3552K [0x00000007d5600000, 0x00000007d97e0000, 0x0000000800000000)
+  eden space 29824K, 0% used [0x00000007d5600000,0x00000007d5600000,0x00000007d7320000)
+  from space 17088K, 20% used [0x00000007d7320000,0x00000007d7698220,0x00000007d83d0000)
+  to   space 16128K, 0% used [0x00000007d8820000,0x00000007d8820000,0x00000007d97e0000)
+ PSOldGen        total 171328K, used 170039K [0x0000000780200000, 0x000000078a950000, 0x00000007d5600000)
+  object space 171328K, 99% used [0x0000000780200000,0x000000078a80dd58,0x000000078a950000)
+ PSPermGen       total 21248K, used 8737K [0x000000077b000000, 0x000000077c4c0000, 0x0000000780200000)
+  object space 21248K, 41% used [0x000000077b000000,0x000000077b8886c0,0x000000077c4c0000)
+
+Dynamic libraries:
+0x0000000000400000 - 0x000000000042e000 	C:\Program Files\Java\jre6\bin\javaw.exe
+0x0000000076e00000 - 0x0000000076fab000 	C:\Windows\SYSTEM32\ntdll.dll
+0x0000000076be0000 - 0x0000000076cff000 	C:\Windows\system32\kernel32.dll
+0x000007fefce10000 - 0x000007fefce7b000 	C:\Windows\system32\KERNELBASE.dll
+0x000007fefd7d0000 - 0x000007fefd8ab000 	C:\Windows\system32\ADVAPI32.dll
+0x000007fefda60000 - 0x000007fefdaff000 	C:\Windows\system32\msvcrt.dll
+0x000007fefebe0000 - 0x000007fefebff000 	C:\Windows\SYSTEM32\sechost.dll
+0x000007fefd250000 - 0x000007fefd37e000 	C:\Windows\system32\RPCRT4.dll
+0x0000000076d00000 - 0x0000000076dfa000 	C:\Windows\system32\USER32.dll
+0x000007fefd500000 - 0x000007fefd567000 	C:\Windows\system32\GDI32.dll
+0x000007fefee10000 - 0x000007fefee1e000 	C:\Windows\system32\LPK.dll
+0x000007fefd990000 - 0x000007fefda5a000 	C:\Windows\system32\USP10.dll
+0x000007fefef80000 - 0x000007fefefae000 	C:\Windows\system32\IMM32.DLL
+0x000007fefefb0000 - 0x000007feff0b9000 	C:\Windows\system32\MSCTF.dll
+0x000000006d7f0000 - 0x000000006def4000 	C:\Program Files\Java\jre6\bin\server\jvm.dll
+0x000007fef8060000 - 0x000007fef809b000 	C:\Windows\system32\WINMM.dll
+0x000000006d760000 - 0x000000006d76e000 	C:\Program Files\Java\jre6\bin\verify.dll
+0x000000006d3b0000 - 0x000000006d3d7000 	C:\Program Files\Java\jre6\bin\java.dll
+0x000000006d310000 - 0x000000006d31a000 	C:\Program Files\Java\jre6\bin\hpi.dll
+0x0000000076fc0000 - 0x0000000076fc7000 	C:\Windows\system32\PSAPI.DLL
+0x000000006d420000 - 0x000000006d454000 	C:\Program Files\Java\jre6\bin\jdwp.dll
+0x000000006d630000 - 0x000000006d638000 	C:\Program Files\Java\jre6\bin\npt.dll
+0x000000006d7b0000 - 0x000000006d7c2000 	C:\Program Files\Java\jre6\bin\zip.dll
+0x000000006d270000 - 0x000000006d279000 	C:\Program Files\Java\jre6\bin\dt_socket.dll
+0x000007fefe9b0000 - 0x000007fefe9fd000 	C:\Windows\system32\WS2_32.dll
+0x000007fefee20000 - 0x000007fefee28000 	C:\Windows\system32\NSI.dll
+0x000007fefb7e0000 - 0x000007fefb7f5000 	C:\Windows\system32\NLAapi.dll
+0x000007fefc590000 - 0x000007fefc5e4000 	C:\Windows\System32\mswsock.dll
+0x000007fefc410000 - 0x000007fefc46b000 	C:\Windows\system32\DNSAPI.dll
+0x000007fef9480000 - 0x000007fef948b000 	C:\Windows\System32\winrnr.dll
+0x000007fef9460000 - 0x000007fef9475000 	C:\Windows\system32\napinsp.dll
+0x000007fefafc0000 - 0x000007fefafe7000 	C:\Windows\system32\IPHLPAPI.DLL
+0x000007fefaf40000 - 0x000007fefaf4b000 	C:\Windows\system32\WINNSI.DLL
+0x000007fefaed0000 - 0x000007fefaf23000 	C:\Windows\System32\fwpuclnt.dll
+0x000007fef9680000 - 0x000007fef9688000 	C:\Windows\system32\rasadhlp.dll
+0x000007fefbf90000 - 0x000007fefbf97000 	C:\Windows\System32\wshtcpip.dll
+
+VM Arguments:
+jvm_args: -agentlib:jdwp=transport=dt_socket,suspend=y,address=localhost:49212 -Dfile.encoding=Cp1252 
+java_command: parser.BaseParser
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files (x86)\TortoiseSVN\bin;C:\Program Files\TortoiseSVN\bin
+USERNAME=jbfan
+OS=Windows_NT
+PROCESSOR_IDENTIFIER=Intel64 Family 6 Model 30 Stepping 5, GenuineIntel
+
+
+
+---------------  S Y S T E M  ---------------
+
+OS: Windows NT 6.1 Build 7600 
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 30 stepping 5, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, ht
+
+Memory: 4k page, physical 8378584k(6499200k free), swap 16755272k(14803340k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (19.1-b02) for windows-amd64 JRE (1.6.0_24-b07), built on Feb  2 2011 16:25:45 by "java_re" with MS VC++ 8.0 (VS2005)
+
+time: Tue May 17 23:30:01 2011
+elapsed time: 940 seconds
+
