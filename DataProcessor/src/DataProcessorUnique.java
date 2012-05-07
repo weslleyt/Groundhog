@@ -46,7 +46,8 @@ public class DataProcessorUnique {
 		//String rootDestinyFolder = "C:/Epona/ArtigoOUTUBRO/Evolucao/resultadosReuniao17-11/Proporcao/AntesDe2005";
 		//String rootDestinyFolder = "C:/Epona/ArtigoFevereiro/Resultado/Proporcional/Geral";
 		
-		String rootDestinyFolder = "/home/weslley/evolucao/medio/2010";
+		//String rootDestinyFolder = "/home/weslley/evolucao/medio/2010";
+		String rootDestinyFolder = "/home/weslley/novoGIT";
 		
 		//String rootDestinyFolder = "C:/Epona/TMCcorrecao/AnaliseIndividual/Backport";
 		
