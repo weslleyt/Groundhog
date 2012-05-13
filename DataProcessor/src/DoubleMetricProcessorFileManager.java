@@ -54,7 +54,7 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 		if (doubleMetricProcessor instanceof MeanDoubleMetricProcessor) {
 			name += "_Mean";
 		}
-		if (doubleMetricProcessor instanceof DateDoubleMetricProcessor2) {
+		/*if (doubleMetricProcessor instanceof DateDoubleMetricProcessor2) {
 			name += "_Date";
 			System.out.println("tipo do grupo: "+((DateDoubleMetricProcessor2) doubleMetricProcessor).getGroup());
 			if (((DateDoubleMetricProcessor2) doubleMetricProcessor).getGroup() == DateDoubleMetricProcessor2.GroupMetric.RECENT) {
@@ -64,7 +64,7 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 			else {
 				name += "_MID_OLD_GROUP";
 			}
-		}
+		}*/
 		if (doubleMetricProcessor instanceof DateRelationshipMetricProcessor){
 			name += "Relationship";
 			System.out.println("relacao =)");
@@ -86,7 +86,7 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 		if (doubleMetricProcessor instanceof MeanDoubleMetricProcessor) {
 			name += "_Mean";
 		}
-		if (doubleMetricProcessor instanceof DateDoubleMetricProcessor2) {
+		/*if (doubleMetricProcessor instanceof DateDoubleMetricProcessor2) {
 			System.out.println("entrou muuito errado 17/10");
 
 			name += "_Date";
@@ -98,7 +98,7 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 			else {
 				name += "_MID_OLD_GROUP";
 			}
-		}
+		}*/
 		if (doubleMetricProcessor instanceof DateRelationshipMetricProcessor){
 			name += "Relationship";
 			System.out.println("relacao =)");

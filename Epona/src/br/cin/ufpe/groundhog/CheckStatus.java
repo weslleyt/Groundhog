@@ -1,4 +1,4 @@
-package br.cin.ufpe.epona;
+package br.cin.ufpe.groundhog;
 
 import java.io.File;
 import java.util.Scanner;
