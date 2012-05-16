@@ -21,12 +21,12 @@ public class ZipHelper {
 		byte[] buffer = new byte[1024];
 
 		try {
-			// cria diretÛrio informado, caso n„o exista
+			// cria diret√≥rio informado, caso n√£o exista
 			if (!dir.exists()) {
 				dir.mkdirs();
 			}
 			if (!dir.exists() || !dir.isDirectory()) {
-				throw new IOException("O diretÛrio " + dir.getName() + " n„o È um diretÛrio v·lido");
+				throw new IOException("O diret√≥rio " + dir.getName() + " n√£o √© um diret√≥rio v√°lido");
 			}
 
 			
@@ -36,18 +36,18 @@ public class ZipHelper {
 				ZipEntry entrada = (ZipEntry) e.nextElement();
 				arquivo = new File(dir, entrada.getName());
 
-				// se for diretÛrio inexistente, cria a estrutura e pula pra prÛxima entrada
+				// se for diret√≥rio inexistente, cria a estrutura e pula pra pr√≥xima entrada
 				if (entrada.isDirectory() && !arquivo.exists()) {
 					arquivo.mkdirs();
 					continue;
 				}
 
-				// se a estrutura de diretÛrios n„o existe, cria
+				// se a estrutura de diret√≥rios n√£o existe, cria
 				if (!arquivo.getParentFile().exists()) {
 					arquivo.getParentFile().mkdirs();
 				}
 				try {
-					// lÍ o arquivo do zip e grava em disco
+					// l√™ o arquivo do zip e grava em disco
 					is = zip.getInputStream(entrada);
 					os = new FileOutputStream(arquivo);
 					int bytesLidos = 0;

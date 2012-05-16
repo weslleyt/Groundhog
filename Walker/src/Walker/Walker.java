@@ -31,6 +31,12 @@ public class Walker{
 				Uncompressor a = new Uncompressor (file, destinyFolder,2);
 				b.execute(a);
 			}
+			
+			//it does not work yet
+			/*if (file.getName().endsWith(".tgz")){
+				Uncompressor a = new Uncompressor (file, destinyFolder,3);
+				b.execute(a);
+			}*/
 		}
 		
 	}
@@ -92,10 +98,14 @@ public class Walker{
 	
 	public static void main(String args[]){
 		//Here goes the path to destiny folder
-		Walker walker = new Walker ("C:\\Projetos2012\\EponaUncompressedProjects");
+		Walker walker = new Walker ("C:\\Projetos2012\\EponaUncompressedProjects2");
+		
 		//Here goes your source folder
 		
-		File file = new File ("C:\\Projetos2012\\Projetos");
+		File file = new File ("C:\\Projetos2012\\Projetos\\grupo1\\2");
+		
+		//File file = new File ("C:\\Projetos2012\\teste");
+		
 		walker.recursiveSearch(file);
 	}
 }
