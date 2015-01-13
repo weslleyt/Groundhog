@@ -42,7 +42,7 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
     @Override
     public Object visitNewClass(NewClassTree arg0, Trees arg1) {
     	ExpressionTree type = arg0.getIdentifier();
-    	
+
     	if (type != null){
     		if (type.toString().equals("Hashtable")
     				||type.toString().contains("Hashtable<")){
@@ -129,6 +129,9 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
     @Override
     public Object visitClass(ClassTree classTree, Trees trees) {    	
     	Tree extendsClause = classTree.getExtendsClause();
+    	
+    	//numero de classes
+    	data.classes++;
     	
     	if (extendsClause != null){  	
     		if (extendsClause.toString().equals("Thread")){
@@ -224,6 +227,10 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
    	
     	invoTree.getMethodSelect();
     	
+    	//nao conta certo
+    	//data.methods++;
+    	
+   	
     	if (invoTree.getMethodSelect().toString().endsWith("start")){
     		data.startCall++;    		
     	}else if (invoTree.getMethodSelect().toString().endsWith("wait")){
@@ -304,6 +311,7 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
     public Object visitMethod(MethodTree methodTree, Trees trees) {
     	ModifiersTree modTree = methodTree.getModifiers();
     	
+    	methodTree.getName();
     	
     	Set<Modifier> mods =  modTree.getFlags();
     	
@@ -311,8 +319,12 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
     	
     	Iterator<Modifier> it = mods.iterator();
     	
+    	//conta com o construtor/numero de classes nao sei pq..
+    	data.methods++;
+    	
     	while(it.hasNext())
     	{
+    		
     		Modifier modfier = it.next();
     		if (modfier.equals(Modifier.SYNCHRONIZED)){
     			//System.out.println("Nome do m�todo sync: " + methodTree.getName());

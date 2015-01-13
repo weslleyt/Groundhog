@@ -14,8 +14,10 @@ public class CheckDates {
 		//String root = "C:/Epona/ArtigoOUTUBRO/Log";
 //		String root = "C:/Epona/ArtigoJANEIRO/LogBaixandoDatas";
 		//String root = "C:/Epona/Projetos2012/log";
-		String root = "C:/Epona/ICSM/log";
+		//String root = "C:/Epona/ICSM/log";
+		String root = "/home/wst/groundhog/LogProjetos2012";
 		
+
 		
 		File folder = new File(root);
 		int okProjects = 0;

@@ -1,0 +1,326 @@
+ INFO [main] Crawler 1 started.
+ INFO [main] Crawler 2 started.
+ INFO [main] Crawler 3 started.
+ INFO [main] Crawler 4 started.
+ INFO [Crawler 1] Number of pages fetched per second: 0
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/latest/download?source=files
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-x86-2.0.0.v20120224.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/allura/mirror/directorystudio/icon
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://ibmsmartercommerce.sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://goparallel.sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/create/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/top
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://ibmsmarteritservices.sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86_64-2.0.0.v20120127.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit https://sourceforge.net/user/registration
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/img/sftheme/favicon.ico
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://sourceforge.net/jobs?source=widget
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20120127.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/p/forge/documentation/Support%20via%20IRC/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://www.dice.com/?CMPID=AF_SF_UP_JS_AV_OG_BN_&utm_source=SourceForge&utm_medium=Affiliate&utm_content=&utm_campaign=Advocacy_Ongoing
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit https://sourceforge.net/account/login.php
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/?source=navbar
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://twitter.com/sourceforge
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-sources-1.5.3.v20100330%20%281%29.zip/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/api/file/index/project-id/642060/mtime/desc/limit/20/rss
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/?source=navbar
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/jobs?source=footer
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/about
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20120224.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-2.0.0.v20120224.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86-2.0.0.v20120111.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/blog/category/sitestatus/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86-2.0.0.v20120224.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-x86-2.0.0.v20120127.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://b.scorecardresearch.com/p?c1=2&c2=6035546&c3=&c4=&c5=&c6=&c15=&cj=1
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/support
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit https://sourceforge.net/apps/trac/sourceforge/wiki/Release%20files%20for%20download
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/blog/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86-2.0.0.v20120127.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://fonts.googleapis.com/css?family=Ubuntu:regular
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com/terms-of-use/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/directory/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://www.diceholdingsinc.com/phoenix.zhtml?c=211152&p=irol-landing
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-1.5.3.v20100330.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/reviews/?source=navbar
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/apps/trac/sourceforge/wiki/WikiStart
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/users/sf-editor3
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-1.5.3.v20100330.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-2.0.0.v20120127.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.jp/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com/privacy-statement/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/jobs?source=header
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com/opt-out-choices/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-2.0.0.v20120111.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-x86-2.0.0.v20120111.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/users/sf-editor1
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/support?source=navbar
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/img/gallery/opa75.png
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-1.5.3.v20100330.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/img/jobs/dice_logo.png
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/css/sf.css?1361213540
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://twitter.com/sfnet_ops
+ INFO [Crawler 1] false
+ERROR [Crawler 2] Page was bigger than max allowed size: http://sourceforge.net/projects/directorystudio.mirror/files/latest/download?source=files
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-linux-x86-2.0.0.v20130131.tar.gz/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-sources-2.0.0.v20130131.zip/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-macosx-x86-2.0.0.v20130131.dmg/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-win32-x86-2.0.0.v20130131.exe/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-linux-x86_64-2.0.0.v20130131.tar.gz/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-macosx-x86_64-2.0.0.v20130131.dmg/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20130131.exe/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://www.accelacomm.com/jaw/sflnk/114/50136577/
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-macosx-x86_64-2.0.0.v20130125.dmg/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-linux-x86-2.0.0.v20130125.tar.gz/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-macosx-x86-2.0.0.v20130125.dmg/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-linux-x86_64-2.0.0.v20130125.tar.gz/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-win32-x86-2.0.0.v20130125.exe/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20130125.exe/stats/timeline
+ INFO [Crawler 2] false
+ INFO [Crawler 2] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-sources-2.0.0.v20130125.zip/stats/timeline
+ INFO [Crawler 2] false
+ INFO [main] Crawler 1 started.
+ INFO [main] Crawler 2 started.
+ INFO [main] Crawler 3 started.
+ INFO [main] Crawler 4 started.
+ INFO [Crawler 1] Number of pages fetched per second: 0
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/latest/download?source=files
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-x86-2.0.0.v20120224.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/allura/mirror/directorystudio/icon
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://ibmsmartercommerce.sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://goparallel.sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/create/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/top
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://ibmsmarteritservices.sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86_64-2.0.0.v20120127.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit https://sourceforge.net/user/registration
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/img/sftheme/favicon.ico
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://sourceforge.net/jobs?source=widget
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20120127.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/p/forge/documentation/Support%20via%20IRC/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://www.dice.com/?CMPID=AF_SF_UP_JS_AV_OG_BN_&utm_source=SourceForge&utm_medium=Affiliate&utm_content=&utm_campaign=Advocacy_Ongoing
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit https://sourceforge.net/account/login.php
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/?source=navbar
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://twitter.com/sourceforge
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-sources-1.5.3.v20100330%20%281%29.zip/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/api/file/index/project-id/642060/mtime/desc/limit/20/rss
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/?source=navbar
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/jobs?source=footer
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/about
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20120224.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-2.0.0.v20120224.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86-2.0.0.v20120111.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/blog/category/sitestatus/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86-2.0.0.v20120224.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-x86-2.0.0.v20120127.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://b.scorecardresearch.com/p?c1=2&c2=6035546&c3=&c4=&c5=&c6=&c15=&cj=1
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/support
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit https://sourceforge.net/apps/trac/sourceforge/wiki/Release%20files%20for%20download
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/blog/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-x86-2.0.0.v20120127.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://fonts.googleapis.com/css?family=Ubuntu:regular
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com/terms-of-use/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/directory/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://www.diceholdingsinc.com/phoenix.zhtml?c=211152&p=irol-landing
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-1.5.3.v20100330.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/reviews/?source=navbar
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/apps/trac/sourceforge/wiki/WikiStart
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/users/sf-editor3
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-1.5.3.v20100330.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-2.0.0.v20120127.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.jp/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com/privacy-statement/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/jobs?source=header
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://geeknetmedia.com/opt-out-choices/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-linux-x86-2.0.0.v20120111.tar.gz/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-macosx-x86-2.0.0.v20120111.dmg/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/users/sf-editor1
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/support?source=navbar
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/img/gallery/opa75.png
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/
+ INFO [Crawler 1] true
+ INFO [Crawler 1] should visit http://sourceforge.net/projects/directorystudio.mirror/files/ApacheDirectoryStudio-win32-1.5.3.v20100330.exe/stats/timeline
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/img/jobs/dice_logo.png
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://a.fsdn.com/con/css/sf.css?1361213540
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://sourceforge.net/
+ INFO [Crawler 1] false
+ INFO [Crawler 1] should visit http://twitter.com/sfnet_ops
+ INFO [Crawler 1] false
+ERROR [Crawler 3] Page was bigger than max allowed size: http://sourceforge.net/projects/directorystudio.mirror/files/latest/download?source=files
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-linux-x86-2.0.0.v20130131.tar.gz/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-sources-2.0.0.v20130131.zip/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-macosx-x86-2.0.0.v20130131.dmg/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-win32-x86-2.0.0.v20130131.exe/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-linux-x86_64-2.0.0.v20130131.tar.gz/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-macosx-x86_64-2.0.0.v20130131.dmg/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M5/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20130131.exe/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-macosx-x86_64-2.0.0.v20130125.dmg/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-linux-x86-2.0.0.v20130125.tar.gz/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-macosx-x86-2.0.0.v20130125.dmg/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-linux-x86_64-2.0.0.v20130125.tar.gz/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-win32-x86-2.0.0.v20130125.exe/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-win32-x86_64-2.0.0.v20130125.exe/stats/timeline
+ INFO [Crawler 3] false
+ INFO [Crawler 3] should visit http://sourceforge.net/projects/directorystudio.mirror/files/Apache%20Directory%20Studio%202.0.0-M4/ApacheDirectoryStudio-sources-2.0.0.v20130125.zip/stats/timeline
+ INFO [Crawler 3] false

@@ -54,7 +54,7 @@ public class SingleMetricProcessor extends MetricProcessor {
 		this.printProjectName = printProjectNames;
 		this.proporcionalLoc = proporcionalLoc;
 		this.setHasMetric(hasMetric);
-		System.out.println("3");
+		
 	}
 	
 	public SingleMetricProcessor(String metricName, boolean hasTreshold,
@@ -188,23 +188,27 @@ public class SingleMetricProcessor extends MetricProcessor {
 	public void readMetrics() throws IOException {
 		
 		double auxiliar=0, auxiliar2=0, relacaoMetrica=0;
-//		if (!year.isEmpty() && proporcionalLoc && !evolution){
-//			System.out.println("Entrou onde deveria");
-//			readFirstYearMetricsPropLOC();
-//		}
-		//else
-			if (evolution && proporcionalLoc)
+	//	if (!year.isEmpty() && proporcionalLoc && !evolution){
+	//		System.out.println("Entrou onde deveria");
+		//	readFirstYearMetricsPropLOC();
+		//}
+	//	else
+		if (evolution && proporcionalLoc) {
+			System.out.println("evolution");
 			readMetricsEvolutionPropLOC();
+			}
 		else if (onlyOneProject==true && proporcionalLoc)
 			readMetricsOnlyOneProjectPropLOC();
 		else if (onlyOneProject==true && !proporcionalLoc)
 			readMetricsOnlyOneProject();
 		else if (year.isEmpty() && proporcionalLoc == false){
 			
-			System.out.println("sabado FIM");
-			//C�DIGO ABAIXO � O NORMAL, DESCOMENTAR para voltar ao normal
+			System.out.println("Sem ser proporcional");
+
 			for (ArrayList<File> projectVersions : getProjectVersions()) {
 				int contador=1;
+				
+				
 				while (contador<=projectVersions.size() && contador >0){
 					File lastVersion = projectVersions.get(projectVersions.size()-(contador));
 					BufferedReader in = new BufferedReader(new FileReader(lastVersion));
@@ -214,7 +218,7 @@ public class SingleMetricProcessor extends MetricProcessor {
 					auxiliar2=0;
 
 
-					if (inLimitLOC(999, lastVersion)){
+					if (inLimitLOC(1, lastVersion)){
 
 						while ((str = in.readLine()) != null) {
 							String[] splitMetrics = str.split(":");
@@ -229,13 +233,17 @@ public class SingleMetricProcessor extends MetricProcessor {
 					}									
 					if (added) {
 						getProjectVersionsCount().add(projectVersions.size());
-						getProjectNames().add(getProjectName(lastVersion));
+						getProjectNames().add(getProjectFullName(lastVersion));
 						contador=-1;					
 					}
 					else if (added==false)
 						contador++;
-				}
+					
+					in.close();
+					
+				
 			}
+				}
 		}
 		else if (!year.isEmpty() && proporcionalLoc == true )
 				readMetricsYearPropLoc();
@@ -248,11 +256,14 @@ public class SingleMetricProcessor extends MetricProcessor {
 	
 	public void readMetricsEvolutionPropLOC() throws IOException {
 		
-		System.out.println("Entrou certoooo =) hj");
 		
+		double somaMetricas=0, somaLoC=0;
+		int contadorProjetos=0;
 		double auxiliar=0, auxiliar2=0, relacaoMetrica=0;
-		
 			for (ArrayList<File> projectVersions : getProjectVersions()) {
+				//verifica se a primeira versao foi lancada no ano.
+				if(VersionYear(Integer.parseInt(year), projectVersions.get(0))){
+				
 				int contador=1;
 				while (contador<=projectVersions.size() && contador >0){
 					File lastVersion = projectVersions.get(projectVersions.size()-(contador));
@@ -261,37 +272,47 @@ public class SingleMetricProcessor extends MetricProcessor {
 					boolean added = false;
 					auxiliar = 0;
 					auxiliar2=0;
-					System.out.println("Aqui �");
-					if (VersionYear(Integer.parseInt(year), lastVersion)) {
-						System.out.println("projeto que tem vers�o 2005" + lastVersion.getName());	
+					
+					//if (VersionYear(Integer.parseInt(year), lastVersion)) {
+					//if (VersionYearBefore(Integer.parseInt(year), lastVersion)) {
+						
 						if (inLimitLOC(999, lastVersion)){
 							while ((str = in.readLine()) != null) {
 								String[] splitMetrics = str.split(":");
 								if (splitMetrics[0].trim().equals(getMetricName()))
 									if (Integer.parseInt(splitMetrics[1].trim()) > 0){
-										auxiliar = Integer.parseInt(splitMetrics[1].trim());
+										//auxiliar = Integer.parseInt(splitMetrics[1].trim());
+										somaMetricas = somaMetricas + Integer.parseInt(splitMetrics[1].trim());
 										added = true;
 									}
-								if (splitMetrics[0].trim().equals("Lines of Code") ){									
-									auxiliar2 = Integer.parseInt(splitMetrics[1].trim());		
+								if (added && splitMetrics[0].trim().equals("Lines of Code") ){									
+									//auxiliar2 = Integer.parseInt(splitMetrics[1].trim());		
+									somaLoC = somaLoC + Integer.parseInt(splitMetrics[1].trim());
 								}
 							}											
-							if (added && auxiliar>0) {
-								relacaoMetrica = (auxiliar/auxiliar2)*100000;
-								getMetricNumbersDerived().add(relacaoMetrica);
-								getProjectVersionsCount().add(projectVersions.size());
-								getProjectNames().add(getProjectFullName(lastVersion));
+							if (added && somaMetricas>0) { //added && auxiliar>0) {
+								//relacaoMetrica = (auxiliar/auxiliar2)*100000;
+								//getMetricNumbersDerived().add(relacaoMetrica);
+								//getProjectVersionsCount().add(projectVersions.size());
+								//getProjectNames().add(getProjectFullName(lastVersion));
+								//String nome = getProjectFullName(lastVersion);
+								//nomeProjeto.concat("SomaProjetos");
+								contadorProjetos++;
 								contador=-4;						
 							}
 						}
-					}
+					//}
 					in.close();
 					if (added == false)
-						contador++;
-					
+						contador++;	
+				}	
 				}
-					
-			}				
+			}
+			
+			relacaoMetrica = (somaMetricas/somaLoC)*100000;
+			getMetricNumbersDerived().add(relacaoMetrica);
+			getProjectVersionsCount().add(contadorProjetos);
+			getProjectNames().add("SomaProjetos");
 	}
 
 	public void readFirstYearMetricsPropLOC() throws IOException {
@@ -433,9 +454,11 @@ public class SingleMetricProcessor extends MetricProcessor {
 	}
 	
 	public void readMetricsPropLOC() throws IOException {
-		System.out.println("20/04");
+		System.out.println("Geral por tamanho");
 		
 		double auxiliar=0, auxiliar2=0, relacaoMetrica=0;
+		
+		if(getProjectVersions().size()>3){
 		
 			for (ArrayList<File> projectVersions : getProjectVersions()) {
 				int contador=1;
@@ -471,18 +494,26 @@ public class SingleMetricProcessor extends MetricProcessor {
 					}
 					else if (added==false)
 						contador++;
-				}
+					
+					in.close();
+					
+				} 
 
+			}
 			}
 				
 	}
 	
 	public void readMetricsYearPropLoc() throws IOException {
+		System.out.println("Lancado em tal ano ultima versao analisada");
 		System.out.println("CERTOOO ICSM");
 		double auxiliar=0, auxiliar2=0, relacaoMetrica=0;
 		for (ArrayList<File> projectVersions : getProjectVersions()) {
 			File firstVersion = projectVersions.get(0);
-			//if (firstVersionYear(Integer.parseInt(year), firstVersion, "j.u.c")){
+			
+			//ATENCAO - ESCOLHO AQUI SE A PRIMEIRA VERSAO TERA JUC OU NORMAL
+			
+			//if (firstVersionYear(Integer.parseInt(year), firstVersion, "j.u.c.WITHOUT.imports")){
 			if (firstVersionYear(Integer.parseInt(year), firstVersion)){
 				
 				int contador=1;
@@ -502,7 +533,6 @@ public class SingleMetricProcessor extends MetricProcessor {
 								if (Integer.parseInt(splitMetrics[1].trim()) > 0){
 									auxiliar = Integer.parseInt(splitMetrics[1].trim());
 									added = true;
-									System.out.println("primeiro Auxiliar "+auxiliar);
 									}
 							if (splitMetrics[0].trim().equals("Lines of Code")){									
 									auxiliar2 = Integer.parseInt(splitMetrics[1].trim());
@@ -523,7 +553,9 @@ public class SingleMetricProcessor extends MetricProcessor {
 					}
 					else if (added==false)
 						contador++;
+				in.close();
 				}
+				
 			}
 		}
 	}
@@ -562,6 +594,9 @@ public class SingleMetricProcessor extends MetricProcessor {
 					}
 					else if (added==false)
 						contador++;
+					
+					in.close();
+				
 				}
 			}
 		}

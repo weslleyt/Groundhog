@@ -82,8 +82,6 @@ public class CorrelationMetricProcessor extends DateDoubleMetricProcessor {
 			readMetricsProporcional();
 		else {
 			for (ArrayList<File> projectVersions : getProjectVersions()) {
-				//System.out.println("Entrou aqui 2");
-				//System.out.println("numero de vers�es= " + projectVersions.size()  );
 				//File firstVersion = projectVersions.get(0);
 				//System.out.println("Nome dos projetos: " + firstVersion.getParentFile().getParentFile().getName());
 				//if (firstVersionYear(Integer.parseInt("2006"), firstVersion)){				
@@ -92,16 +90,12 @@ public class CorrelationMetricProcessor extends DateDoubleMetricProcessor {
 					File lastVersion = projectVersions.get(projectVersions.size()-(contador));
 					if (isValidProject(1000, lastVersion, getMetricsNames().get(0) , getMetricsNames().get(1))){
 						int[] lastRecentMetricValue = getMetricCorrelationValue(lastVersion);
-						System.out.println("metrica 0: " + lastRecentMetricValue[0]);
-						System.out.println("metrica 1: " + lastRecentMetricValue[1]);
-						System.out.println("metrica 2: " + lastRecentMetricValue[2]);
 
 						double auxiliar = lastRecentMetricValue[0];
 						double auxiliar2 = lastRecentMetricValue[1];
 						double auxiliar3 = lastRecentMetricValue[2];
 						double correlacaoMetrica = (auxiliar/auxiliar3)*100000;
 						double correlacaoMetrica2 = (auxiliar2/auxiliar3)*100000;
-						System.out.println("relacao metrica: " + correlacaoMetrica);
 
 						if (correlacaoMetrica>0 || correlacaoMetrica2>0){
 							correlationMetric.add(correlacaoMetrica);
@@ -112,7 +106,6 @@ public class CorrelationMetricProcessor extends DateDoubleMetricProcessor {
 					}
 					contador++;
 				}
-				System.out.println("Saiu");
 			}
 		}
 			

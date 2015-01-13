@@ -52,6 +52,7 @@ public class LoCMetricProcessor extends MetricProcessor {
 								countLoc += value;						
 						}
 					}
+					in.close();
 				}
 				//if (countLoc>0)
 				getLocProjects().add(countLoc);
@@ -72,8 +73,8 @@ public class LoCMetricProcessor extends MetricProcessor {
 
 			File firstVersion = projectVersions.get(0);
 
-			//if (firstVersionYear(Integer.parseInt(year), firstVersion) && checkMetric(projectVersions, "j.u.c")){
-			if (firstVersionYear(Integer.parseInt(year), firstVersion)){
+			if (firstVersionYear(Integer.parseInt(year), firstVersion) && checkMetric(projectVersions, "j.u.c")){
+			//if (firstVersionYear(Integer.parseInt(year), firstVersion)){
 				getProjectNames().add(getProjectName(projectVersions.get(0)));
 				int countLoc = 0;
 

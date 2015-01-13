@@ -1,3 +1,4 @@
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -5,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import javax.swing.Box.Filler;
 
@@ -21,41 +23,25 @@ public class DataProcessorUnique {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		//String rootSourceFolder = "C:/Epona/logsGPCE/A_logs_REMOVED_EMPTY_FOLDERS_BY_DATE";
-		//String rootSourceFolder = "C:/Epona/logsGPCE/logs";
-		//ABAIXO TEM URL DOS NOVOS
-		//String rootSourceFolder = "C:/Epona/AnaliseDetalhada/LogsAnaliseDetalhada";
-		//String rootSourceFolder = "C:/novosLogsCorrigidos";
-//		String rootSourceFolder = "C:/Epona/AnaliseDetalhada/LogsAnaliseDetalhadaSegurancaAlgumasDatas";
-		//String rootSourceFolder = "C:/Epona/ArtigoFevereiro/Log";
-		
-		String rootSourceFolder = "/media/Dados/DropBox/Dropbox/Dissertacao/ArtigoFevereiro/log/log";
-		
-	//	String rootSourceFolder = "/home/weslley/categoria/NovoMedio/teste";
-	//	String rootSourceFolder = "/home/weslley/categoria/grande/Lancados2005";
-		//String rootSourceFolder = "/home/weslley/categoria/todos";
-		
-		//String rootSourceFolder = "C:/Epona/AnaliseDetalhada/LogIndividual9";
-		
-		
-		//String rootSourceFolder = "C:/testes/tomcat";
-		//String rootSourceFolder = "C:/novosTomcat/hibernate";
-		
 
-		//Abaixo tem a url dos resultados novos dos projetos source forge
-		//String rootDestinyFolder = "C:/Epona/ArtigoOUTUBRO/Evolucao/resultadosReuniao17-11/Proporcao/AntesDe2005";
-		//String rootDestinyFolder = "C:/Epona/ArtigoFevereiro/Resultado/Proporcional/Geral";
 		
-		//String rootDestinyFolder = "/home/weslley/evolucao/medio/2010";
-		String rootDestinyFolder = "/home/weslley/novoGIT";
+		String rootSourceFolder = "/home/weslley/mestrado2014/FinalProjects/";
+		//String rootSourceFolder = "/home/weslley/mestrado/FinalProjects/";
+		
+		//String rootSourceFolder = "/home/wst/groundhog/FinalProjects/";
+		
+		//String rootDestinyFolder = "/home/weslley/mestrado/spe/respRevChato18Janeiro2014Correlacao/";
+		//String rootDestinyFolder = "/home/weslley/mestrado/spe/diferencaGrandeValorBrutoProjetosDiminuiramInclusos/";
+		
+		String rootDestinyFolder = "/home/weslley/mestrado2014/Resultados";
+		
 		
 		//String rootDestinyFolder = "C:/Epona/TMCcorrecao/AnaliseIndividual/Backport";
 		
-		//String metricsNameSourceFolder = "C:/Epona/logsGPCE/metricsNames.txt";
-		//String metricsNameSourceFolder = "C:/Epona/ArtigoFevereiro/metricsNames.txt";
-		String projectsByCategoriesFolder = "/home/weslley/projetcsByCategory";
+
+		//String projectsByCategoriesFolder = "/home/weslley/projetcsByCategory";
 		
-		String metricsNameSourceFolder = "/media/Dados/DropBox/Dropbox/Dissertacao/ArtigoFevereiro/metricsNames.txt";
+		String metricsNameSourceFolder = "/home/weslley/mestrado2014/metricsNames.txt";
 		
 		fileSourceFolder = new File(rootSourceFolder);
 		File metricsNameFile = new File(metricsNameSourceFolder);
@@ -74,88 +60,500 @@ public class DataProcessorUnique {
 
 		 
 			//LOC Por ano escolhido	
-//			 LoCMetricProcessor loc = new LoCMetricProcessor(true, "2005");
-//			 loc.process(fileSourceFolder);
+		//	 LoCMetricProcessor loc = new LoCMetricProcessor(true, "2005");
+		//	 loc.process(fileSourceFolder);
 
 		 //Pegar primeira Versão que utiliza JUC - sem import
-	//	 	getProjectsFirstVersionMetric("j.u.c.WITHOUT.imports", true, true, "2010", true);
+		//	getProjectsFirstVersionMetric("j.u.c.WITHOUT.imports", true, true, "2012", true);
 			
-		 	//Pegar a evolucao
-		 	 generateSingleMetricsEvolution(metricsNames, true,true,true,true, "2010",true);
-			  generateSingleMetricsEvolution(metricsNames, false,true,true, true, "2010", true);
+		 //Pegar projetos lançados em Tal ano e a ultima versao e analizada
+		// generateSingleMetrics(metricsNames, true, true, true, "2005", true);
+		 //generateSingleMetrics(metricsNames, false, true, true, "2005", true);
+		 
+		
+		 	//Pegar a evolucao2
+		 	// generateSingleMetricsEvolution(metricsNames, true,true,true,true, "2012",true);
+			// generateSingleMetricsEvolution(metricsNames, false,true,true, true, "2012", true);
 			 
 			 //para coletar dados de 1 só projeto
 			 //generateSingleMetrics(metricsNames, true,true,true,"2005",false, true);
 			 //generateSingleMetrics(metricsNames, false,true,true,"2005",false, true);
 			 
 		 	
+		 //ArrayList<String> teste = new ArrayList<String>();
+		 //teste.add("Lines of Code");
+		 //generateSingleMetrics(teste, false,true,true, false);
 		 
-		//	 generateSingleMetrics(metricsNames, false,true,true, true);
-		//	 generateSingleMetrics(metricsNames, true,true,true,true);	 
+		  
+		 //DateDoubleMetricProcessor dmdmp233 = new DateDoubleMetricProcessor("extends Thread", "Lines of Code",false, true);
+		 //dmdmp233.process(fileSourceFolder);
+		 
+		 
+		 //Para gerar as metricas gerais
+		 generateSingleMetrics(metricsNames, false,true,true,false);	 
+		 generateSingleMetrics(metricsNames, true,true,true,false);
+		 		 
+		// soma LOC normal	
+		// LoCMetricProcessor loc = new LoCMetricProcessor(true);
+		// loc.process(fileSourceFolder);
+		// LoCMetricProcessor loc2 = new LoCMetricProcessor(false);
+		// loc2.process(fileSourceFolder);
 			 
-			 //LoCMetricProcessor loc = new LoCMetricProcessor(true);
-			 //loc.process(fileSourceFolder);
-			 
-			 //para gerar correlação 
-/*				DateDoubleMetricProcessor dmdmp7 = new DateDoubleMetricProcessor("sync methods", "j.u.c.WITHOUT.imports",false, true);
-				 dmdmp7.process(fileSourceFolder);	
-			 
-				 DateDoubleMetricProcessor dmdmp6 = new DateDoubleMetricProcessor("sync blocks", "j.u.c.WITHOUT.imports",false, true);
-				 dmdmp6.process(fileSourceFolder);	
-				 
-				 DateDoubleMetricProcessor dmdmp8 = new DateDoubleMetricProcessor("sync methods", "Atomic variables",false, true);
-				 dmdmp8.process(fileSourceFolder);
-				 
-				 DateDoubleMetricProcessor dmdmp9 = new DateDoubleMetricProcessor("sync blocks", "Atomic variables",false, true);
-				 dmdmp9.process(fileSourceFolder);*/
-				 
-				 
-		//	 CorrelationMetricProcessor dmdmp45 = new CorrelationMetricProcessor("HashMap", "j.u.c",false, true);
-//			 dmdmp45.process(fileSourceFolder);
+		//para gerar dados utilizados nos gráficos de comparar old e new
+		 
+//		 	 DateDoubleMetricProcessor dmdmp633 = new DateDoubleMetricProcessor("ReentrantLock", "Lines of Code",false, true);
+//		 dmdmp633.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp6133 = new DateDoubleMetricProcessor("sync blocks", "Lines of Code",false, true);
+//		 dmdmp6133.process(fileSourceFolder);
+//
+//		 DateDoubleMetricProcessor dmdmp6233 = new DateDoubleMetricProcessor("ReentrantReadWriteLock", "Lines of Code",false, true);
+//		 dmdmp6233.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp636 = new DateDoubleMetricProcessor("sync methods", "Lines of Code",false, true);
+//		 dmdmp636.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp635 = new DateDoubleMetricProcessor("volatile", "Lines of Code",false, true);
+//		 dmdmp635.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp33 = new DateDoubleMetricProcessor("implements Runnable", "Lines of Code",false, true);
+//		 dmdmp33.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp133 = new DateDoubleMetricProcessor("extends Runnable", "Lines of Code",false, true);
+//		 dmdmp133.process(fileSourceFolder);
+//
+//		 DateDoubleMetricProcessor dmdmp233 = new DateDoubleMetricProcessor("extends Thread", "Lines of Code",false, true);
+//		 dmdmp233.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp36 = new DateDoubleMetricProcessor("HashMap", "Lines of Code",false, true);
+//		 dmdmp36.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp35 = new DateDoubleMetricProcessor("Hashtable", "Lines of Code",false, true);
+//		 dmdmp35.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp137 = new DateDoubleMetricProcessor("executorService", "Lines of Code",false, true);
+//		 dmdmp137.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp37 = new DateDoubleMetricProcessor("ConcurrentHashMap", "Lines of Code",false, true);
+//		 dmdmp37.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp40 = new DateDoubleMetricProcessor("linkedBlockingQueue", "Lines of Code",false, true);
+//		 dmdmp40.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp41 = new DateDoubleMetricProcessor("priorityBlockingQueue", "Lines of Code",false, true);
+//		 dmdmp41.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp42 = new DateDoubleMetricProcessor("synchronousQueue", "Lines of Code",false, true);
+//		 dmdmp42.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp43 = new DateDoubleMetricProcessor("CountDownLatch", "Lines of Code",false, true);
+//		 dmdmp43.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp432 = new DateDoubleMetricProcessor("CyclicBarrier", "Lines of Code",false, true);
+//		 dmdmp432.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp44 = new DateDoubleMetricProcessor("executors", "Lines of Code",false, true);
+//		 dmdmp44.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp45 = new DateDoubleMetricProcessor("CyclicBarrier", "Lines of Code",false, true);
+//		 dmdmp45.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp55 = new DateDoubleMetricProcessor("wait()", "Lines of Code",false, true);
+//		 dmdmp55.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp56 = new DateDoubleMetricProcessor("notify()", "Lines of Code",false, true);
+//		 dmdmp56.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp57 = new DateDoubleMetricProcessor("notifyAll()", "Lines of Code",false, true);
+//		 dmdmp57.process(fileSourceFolder);
+//		 
+		 
+		 
+		//para gerar dados utilizados nos gráficos de comparar versão mais antiga com a mais nova (Pedido Fernando email 
+		 /*
+		  * Calcular correlações entre primeira e última versões. Ao invés de dividir nos dois grupos baseados em 
+		  * sequências de anos (grupos Old e Recent), gostaria de saber se temos correlações interessantes quando, 
+		  * para um projeto com duas versões, calculamos os deltas levando em conta as versòes mais recentes e antigas.
+		  *  A vantagem de fazer esse cálculo é que temos um grupo muito maior de projetos para avaliar e a partir do qual 
+		  *  podemos calcular correlações. A desvantagem é que perdemos a perspectiva temporal. Weslley: você faz isso?
+		  * 
+		  * */
+		 /*
+		 DateDoubleMetricProcessor dmdmp224 = new DateDoubleMetricProcessor("volatile", "sync blocks",false, true, false);
+			dmdmp224.process(fileSourceFolder);
 			
+			DateDoubleMetricProcessor dmdmp324 = new DateDoubleMetricProcessor("volatile", "j.u.c.WITHOUT.imports",false, true, false);
+			dmdmp324.process(fileSourceFolder);
+			
+			DateDoubleMetricProcessor dmdmp424 = new DateDoubleMetricProcessor("volatile", "Atomic variables",false, true, false);
+			dmdmp424.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp3 = new DateDoubleMetricProcessor("notifyAll()","CountDownLatch",false, true, false);
+		 dmdmp3.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp4 = new DateDoubleMetricProcessor( "wait()","CountDownLatch",false, true, false);
+		 dmdmp4.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp26 = new DateDoubleMetricProcessor( "notify()", "CountDownLatch",false, true, false);
+		 dmdmp26.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp726 = new DateDoubleMetricProcessor( "notify()", "notifyAll()",false, true, false);
+		 dmdmp726.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp643 = new DateDoubleMetricProcessor("Callable", "Executors contructs",false, true, false);
+		 dmdmp643.process(fileSourceFolder);
+		
+		 
+		 DateDoubleMetricProcessor dmdmp33 = new DateDoubleMetricProcessor("CountDownLatch", "CyclicBarrier",false, true, false);
+			 dmdmp33.process(fileSourceFolder);
 			 
-	/*		 CorrelationMetricProcessor dmdmp7 = new CorrelationMetricProcessor("Synchronized keyword", "j.u.c",false,true);
-				dmdmp7.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp43 = new DateDoubleMetricProcessor("CountDownLatch", "Executors contructs",false, true, false);
+			 dmdmp43.process(fileSourceFolder);
 			 
-			CorrelationMetricProcessor dmdmp6 = new CorrelationMetricProcessor("Synchronized keyword", "Atomic variables",false, true);
-				dmdmp6.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp263 = new DateDoubleMetricProcessor("CyclicBarrier", "Executors contructs",false, true, false);
+			 dmdmp263.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp35 = new DateDoubleMetricProcessor("sync methods", "Executors contructs",false, true, false);
+			 dmdmp35.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp50 = new CorrelationMetricProcessor("extends Thread", "executors",false, true);
-			 dmdmp50.process(fileSourceFolder);
-					
-			 CorrelationMetricProcessor dmdmp8 = new CorrelationMetricProcessor("Synchronized keyword", "Juc.Locks",false, true);
-			 dmdmp8.process(fileSourceFolder);
-						
-			 CorrelationMetricProcessor dmdmp9 = new CorrelationMetricProcessor("Hashtable", "Concurrent collections",false, true);
-			 dmdmp9.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp265 = new DateDoubleMetricProcessor("sync methods", "CountDownLatch",false, true, false);
+			 dmdmp265.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp10 = new CorrelationMetricProcessor("HashMap", "Concurrent collections",false, true);
-			 dmdmp10.process(fileSourceFolder);
-			 		 		 
-			 CorrelationMetricProcessor dmdmp30 = new CorrelationMetricProcessor("Atomic variables", "Concurrent collections",false, true);
-			 dmdmp30.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp243 = new DateDoubleMetricProcessor("sync methods", "CyclicBarrier",false, true, false);
+			 dmdmp243.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp31 = new CorrelationMetricProcessor("Atomic variables", "Hashtable",false, true);
-			 dmdmp31.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp45 = new DateDoubleMetricProcessor("sync blocks", "Executors contructs",false, true, false);
+			 dmdmp45.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp32 = new CorrelationMetricProcessor("Atomic variables", "HashMap",false, true);
-			 dmdmp32.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp261 = new DateDoubleMetricProcessor("sync blocks", "CountDownLatch",false, true, false);
+			 dmdmp261.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp40 = new CorrelationMetricProcessor("notify()", "notifyAll()",false, true);
-			 dmdmp40.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp262 = new DateDoubleMetricProcessor("sync blocks", "CyclicBarrier",false, true, false);
+			 dmdmp262.process(fileSourceFolder);
+		 
 			 
-			 CorrelationMetricProcessor dmdmp41 = new CorrelationMetricProcessor("AllSynchronizedCollections", "Concurrent collections",false, true);
-			 dmdmp41.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp260 = new DateDoubleMetricProcessor("Hashtable", "CountDownLatch",false, true, false);
+			 dmdmp260.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp12 = new CorrelationMetricProcessor("sync methods", "sync blocks",false, true);
-			 dmdmp12.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp264 = new DateDoubleMetricProcessor("Hashtable", "CyclicBarrier",false, true, false);
+			 dmdmp264.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp13 = new CorrelationMetricProcessor("Hashtable", "HashMap",false, true);
-			 dmdmp13.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp266 = new DateDoubleMetricProcessor("Hashtable", "Atomic variables",false, true, false);
+			 dmdmp266.process(fileSourceFolder);
 			 
-			 CorrelationMetricProcessor dmdmp14 = new CorrelationMetricProcessor("sync methods", "sync blocks",false, true);
-			 dmdmp14.process(fileSourceFolder);
-				*/
+			 DateDoubleMetricProcessor dmdmp267 = new DateDoubleMetricProcessor("HashMap", "CountDownLatch",false, true, false);
+			 dmdmp267.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp268 = new DateDoubleMetricProcessor("HashMap", "CyclicBarrier",false, true, false);
+			 dmdmp268.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp269 = new DateDoubleMetricProcessor("HashMap", "Atomic variables",false, true, false);
+			 dmdmp269.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp227 = new DateDoubleMetricProcessor("ConcurrentHashMap", "CountDownLatch",false, true, false);
+			 dmdmp227.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp228 = new DateDoubleMetricProcessor("ConcurrentHashMap", "CyclicBarrier",false, true, false);
+			 dmdmp228.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp229 = new DateDoubleMetricProcessor("ConcurrentHashMap", "Atomic variables",false, true, false);
+			 dmdmp229.process(fileSourceFolder);
+			 
+			 
+		
+		 
+		 DateDoubleMetricProcessor dmdmp9 = new DateDoubleMetricProcessor("sync blocks", "Atomic variables",false, true, false);
+		 dmdmp9.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp8 = new DateDoubleMetricProcessor("sync methods", "Atomic variables",false, true, false);
+		 dmdmp8.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp15 = new DateDoubleMetricProcessor("Atomic variables", "Concurrent collections",false, true, false);
+		 dmdmp15.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp16 = new DateDoubleMetricProcessor("sync methods", "Juc.Locks",false, true, false);
+		 dmdmp16.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp17 = new DateDoubleMetricProcessor("sync blocks", "Juc.Locks",false, true, false);
+		 dmdmp17.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp6 = new DateDoubleMetricProcessor("sync blocks", "j.u.c.WITHOUT.imports",false, true, false);
+		 dmdmp6.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp7 = new DateDoubleMetricProcessor("sync methods", "j.u.c.WITHOUT.imports",false, true, false);
+		 dmdmp7.process(fileSourceFolder);
+		
+		 DateDoubleMetricProcessor dmdmp10 = new DateDoubleMetricProcessor("sync methods", "sync blocks",false, true, false);
+		 dmdmp10.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp11 = new DateDoubleMetricProcessor("Hashtable", "HashMap",false, true, false);
+		 dmdmp11.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp12 = new DateDoubleMetricProcessor("HashMap", "ConcurrentHashMap",false, true, false);
+		 dmdmp12.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp13 = new DateDoubleMetricProcessor("Hashtable", "ConcurrentHashMap",false, true, false);
+		 dmdmp13.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp18 = new DateDoubleMetricProcessor("wait()", "notify()",false, true, false);
+		 dmdmp18.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp19 = new DateDoubleMetricProcessor("wait()", "notifyAll()",false, true, false);
+		 dmdmp19.process(fileSourceFolder);	
+		 
+		 
+		 DateDoubleMetricProcessor dmdmp20 = new DateDoubleMetricProcessor("ReentrantLock", "sync blocks",false, true, false);
+		 dmdmp20.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp21 = new DateDoubleMetricProcessor("ReentrantLock", "sync methods",false, true, false);
+		 dmdmp21.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp22 = new DateDoubleMetricProcessor("ReentrantReadWriteLock", "sync blocks",false, true, false);
+		 dmdmp22.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp23 = new DateDoubleMetricProcessor("ReentrantReadWriteLock", "sync methods",false, true, false);
+		 dmdmp23.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp25 = new DateDoubleMetricProcessor("implements Runnable", "Executors contructs",false, true, false);
+		 dmdmp25.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp24 = new DateDoubleMetricProcessor("extends Thread", "Executors contructs",false, true, false);
+			dmdmp24.process(fileSourceFolder);
+	 
+	 */
+		 
+		 
+		//para gerar correlacao
+		 /*
+		 
+		 DateDoubleMetricProcessor dmdmp224 = new DateDoubleMetricProcessor("volatile", "sync blocks",false, true);
+			dmdmp224.process(fileSourceFolder);
+			
+			DateDoubleMetricProcessor dmdmp324 = new DateDoubleMetricProcessor("volatile", "j.u.c.WITHOUT.imports",false, true);
+			dmdmp324.process(fileSourceFolder);
+			
+			DateDoubleMetricProcessor dmdmp424 = new DateDoubleMetricProcessor("volatile", "Atomic variables",false, true);
+			dmdmp424.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp3 = new DateDoubleMetricProcessor("notifyAll()","CountDownLatch",false, true);
+		 dmdmp3.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp4 = new DateDoubleMetricProcessor( "wait()","CountDownLatch",false, true);
+		 dmdmp4.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp26 = new DateDoubleMetricProcessor( "notify()", "CountDownLatch",false, true);
+		 dmdmp26.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp726 = new DateDoubleMetricProcessor( "notify()", "notifyAll()",false, true);
+		 dmdmp726.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp643 = new DateDoubleMetricProcessor("Callable", "Executors contructs",false, true);
+		 dmdmp643.process(fileSourceFolder);
+		
+		 
+		 DateDoubleMetricProcessor dmdmp33 = new DateDoubleMetricProcessor("CountDownLatch", "CyclicBarrier",false, true);
+			 dmdmp33.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp43 = new DateDoubleMetricProcessor("CountDownLatch", "Executors contructs",false, true);
+			 dmdmp43.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp263 = new DateDoubleMetricProcessor("CyclicBarrier", "Executors contructs",false, true);
+			 dmdmp263.process(fileSourceFolder);
+			 DateDoubleMetricProcessor dmdmp35 = new DateDoubleMetricProcessor("sync methods", "Executors contructs",false, true);
+			 dmdmp35.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp265 = new DateDoubleMetricProcessor("sync methods", "CountDownLatch",false, true);
+			 dmdmp265.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp243 = new DateDoubleMetricProcessor("sync methods", "CyclicBarrier",false, true);
+			 dmdmp243.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp45 = new DateDoubleMetricProcessor("sync blocks", "Executors contructs",false, true);
+			 dmdmp45.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp261 = new DateDoubleMetricProcessor("sync blocks", "CountDownLatch",false, true);
+			 dmdmp261.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp262 = new DateDoubleMetricProcessor("sync blocks", "CyclicBarrier",false, true);
+			 dmdmp262.process(fileSourceFolder);
+		 
+			 
+			 DateDoubleMetricProcessor dmdmp260 = new DateDoubleMetricProcessor("Hashtable", "CountDownLatch",false, true);
+			 dmdmp260.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp264 = new DateDoubleMetricProcessor("Hashtable", "CyclicBarrier",false, true);
+			 dmdmp264.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp266 = new DateDoubleMetricProcessor("Hashtable", "Atomic variables",false, true);
+			 dmdmp266.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp267 = new DateDoubleMetricProcessor("HashMap", "CountDownLatch",false, true);
+			 dmdmp267.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp268 = new DateDoubleMetricProcessor("HashMap", "CyclicBarrier",false, true);
+			 dmdmp268.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp269 = new DateDoubleMetricProcessor("HashMap", "Atomic variables",false, true);
+			 dmdmp269.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp227 = new DateDoubleMetricProcessor("ConcurrentHashMap", "CountDownLatch",false, true);
+			 dmdmp227.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp228 = new DateDoubleMetricProcessor("ConcurrentHashMap", "CyclicBarrier",false, true);
+			 dmdmp228.process(fileSourceFolder);
+			 
+			 DateDoubleMetricProcessor dmdmp229 = new DateDoubleMetricProcessor("ConcurrentHashMap", "Atomic variables",false, true);
+			 dmdmp229.process(fileSourceFolder);
+			 
+			 
+		
+		 
+		 DateDoubleMetricProcessor dmdmp9 = new DateDoubleMetricProcessor("sync blocks", "Atomic variables",false, true);
+		 dmdmp9.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp8 = new DateDoubleMetricProcessor("sync methods", "Atomic variables",false, true);
+		 dmdmp8.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp15 = new DateDoubleMetricProcessor("Atomic variables", "Concurrent collections",false, true);
+		 dmdmp15.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp16 = new DateDoubleMetricProcessor("sync methods", "Juc.Locks",false, true);
+		 dmdmp16.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp17 = new DateDoubleMetricProcessor("sync blocks", "Juc.Locks",false, true);
+		 dmdmp17.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp6 = new DateDoubleMetricProcessor("sync blocks", "j.u.c.WITHOUT.imports",false, true);
+		 dmdmp6.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp7 = new DateDoubleMetricProcessor("sync methods", "j.u.c.WITHOUT.imports",false, true);
+		 dmdmp7.process(fileSourceFolder);
+		
+		 DateDoubleMetricProcessor dmdmp10 = new DateDoubleMetricProcessor("sync methods", "sync blocks",false, true);
+		 dmdmp10.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp11 = new DateDoubleMetricProcessor("Hashtable", "HashMap",false, true);
+		 dmdmp11.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp12 = new DateDoubleMetricProcessor("HashMap", "ConcurrentHashMap",false, true);
+		 dmdmp12.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp13 = new DateDoubleMetricProcessor("Hashtable", "ConcurrentHashMap",false, true);
+		 dmdmp13.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp18 = new DateDoubleMetricProcessor("wait()", "notify()",false, true);
+		 dmdmp18.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp19 = new DateDoubleMetricProcessor("wait()", "notifyAll()",false, true);
+		 dmdmp19.process(fileSourceFolder);	
+		 
+		 
+		 DateDoubleMetricProcessor dmdmp20 = new DateDoubleMetricProcessor("ReentrantLock", "sync blocks",false, true);
+		 dmdmp20.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp21 = new DateDoubleMetricProcessor("ReentrantLock", "sync methods",false, true);
+		 dmdmp21.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp22 = new DateDoubleMetricProcessor("ReentrantReadWriteLock", "sync blocks",false, true);
+		 dmdmp22.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp23 = new DateDoubleMetricProcessor("ReentrantReadWriteLock", "sync methods",false, true);
+		 dmdmp23.process(fileSourceFolder);	
+		 
+		 DateDoubleMetricProcessor dmdmp25 = new DateDoubleMetricProcessor("implements Runnable", "Executors contructs",false, true);
+		 dmdmp25.process(fileSourceFolder);
+		 
+		 DateDoubleMetricProcessor dmdmp24 = new DateDoubleMetricProcessor("extends Thread", "Executors contructs",false, true);
+			dmdmp24.process(fileSourceFolder);	
+		 
+			*/
+			
+			
+		 //--
+			
+		 
+//		 DateDoubleMetricProcessor dmdmp2 = new DateDoubleMetricProcessor("blockingQueue", "notify()",false, true);
+//		 dmdmp2.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp388 = new DateDoubleMetricProcessor("blockingQueue", "notifyAll()",false, true);
+//		 dmdmp388.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp488 = new DateDoubleMetricProcessor("blockingQueue", "wait()",false, true);
+//		 dmdmp488.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp2688 = new DateDoubleMetricProcessor("arrayBlockingQueue", "notifyAll()",false, true);
+//		 dmdmp2688.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp27 = new DateDoubleMetricProcessor("arrayBlockingQueue", "notify()",false, true);
+//		 dmdmp27.process(fileSourceFolder);
+//		
+//		 DateDoubleMetricProcessor dmdmp28 = new DateDoubleMetricProcessor("arrayBlockingQueue", "wait()",false, true);
+//		 dmdmp28.process(fileSourceFolder);
+//		  
+//		 DateDoubleMetricProcessor dmdmp29 = new DateDoubleMetricProcessor("synchronousQueue", "notifyAll()",false, true);
+//		 dmdmp29.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp30 = new DateDoubleMetricProcessor("synchronousQueue", "notify()",false, true);
+//		 dmdmp30.process(fileSourceFolder);
+//		
+//		 DateDoubleMetricProcessor dmdmp31 = new DateDoubleMetricProcessor("synchronousQueue", "wait()",false, true);
+//		 dmdmp31.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp32 = new DateDoubleMetricProcessor("priorityBlockingQueue", "notifyAll()",false, true);
+//		 dmdmp32.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp3388 = new DateDoubleMetricProcessor("priorityBlockingQueue", "notify()",false, true);
+//		 dmdmp3388.process(fileSourceFolder);
+//		
+//		 DateDoubleMetricProcessor dmdmp34 = new DateDoubleMetricProcessor("priorityBlockingQueue", "wait()",false, true);
+//		 dmdmp34.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp3588 = new DateDoubleMetricProcessor("linkedBlockingQueue", "notifyAll()",false, true);
+//		 dmdmp3588.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp36 = new DateDoubleMetricProcessor("linkedBlockingQueue", "notify()",false, true);
+//		 dmdmp36.process(fileSourceFolder);
+//		
+//		 DateDoubleMetricProcessor dmdmp37 = new DateDoubleMetricProcessor("linkedBlockingQueue", "wait()",false, true);
+//		 dmdmp37.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp38 = new DateDoubleMetricProcessor("linkedBlockingDeque", "notifyAll()",false, true);
+//		 dmdmp38.process(fileSourceFolder);
+//		 
+//		// DateDoubleMetricProcessor dmdmp39 = new DateDoubleMetricProcessor("linkedBlockingDeque", "notify()",false, true);
+//		// dmdmp39.process(fileSourceFolder);
+//		
+//		 DateDoubleMetricProcessor dmdmp40 = new DateDoubleMetricProcessor("linkedBlockingDeque", "wait()",false, true);
+//		 dmdmp40.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp41 = new DateDoubleMetricProcessor("delayQueue", "notifyAll()",false, true);
+//		 dmdmp41.process(fileSourceFolder);
+//		 
+//		 DateDoubleMetricProcessor dmdmp42 = new DateDoubleMetricProcessor("delayQueue", "notify()",false, true);
+//		 dmdmp42.process(fileSourceFolder);
+//		
+//		 DateDoubleMetricProcessor dmdmp4377 = new DateDoubleMetricProcessor("delayQueue", "wait()",false, true);
+//		 dmdmp4377.process(fileSourceFolder);
+//		 //*/
+		   
+		 
+	
+		 
+			/*	 	
+				 
+				 
+				 //REFAZER NO FINAL
+				 
+				DateDoubleMetricProcessor dmdmp14 = new DateDoubleMetricProcessor("wait()", "CountDownLatch",false, true);
+				dmdmp14.process(fileSourceFolder);	
+				 
+				
+				 
+				 // 		DateDoubleMetricProcessor dmdmp5 = new DateDoubleMetricProcessor("Lines of Code", "Lines of Code",false, true);
+		 //		dmdmp5.process(fileSourceFolder);
+				 
+				 */
+				 
+	
 			 //para gerar evoluï¿œï¿œo software
 			 
 	/*		 DateDoubleMetricProcessor dmdmp6 = new DateDoubleMetricProcessor("Synchronized keyword", "Atomic variables",false, true);

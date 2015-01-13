@@ -97,6 +97,13 @@ public class CollectedData {
     public int uncaughtException;
     
     public int semaphore;
+    
+    //atualizacao jss
+    public int classes;
+    public int methods;
+    
+    
+    
 	
 	public CollectedData(){
 	}
@@ -112,6 +119,9 @@ public class CollectedData {
 			FileWriter log = new FileWriter(destinyFolder.getAbsolutePath() + "/" + file.getName() + ".txt");
 	        BufferedWriter out = new BufferedWriter(log);
 	        
+	        out.write("classes :              " + classes + "\n");
+	        out.write("methods :              " + this.getTotalMethods() + "\n");
+	        	        
 	        out.write("extends Thread :              " + extendsThread + "\n");
 	        out.write("implements Runnable :         " + implementsRunnable + "\n");
 	        out.write("extends Runnable :         " + extendsRunnable + "\n");
@@ -228,6 +238,12 @@ public class CollectedData {
 	{
 		return this.future + this.response + this.runnableFuture + this.runnableScheduledFuture + this.scheduledFuture +
 			this.forkJoinTask +  this.futureTask + this.recursiveAction + this.recursiveTask + this.swingWorker;
+	}
+	
+	
+	private int getTotalMethods(){
+		//preciso diminuir com o numero de classes pois ele conta com o construtor padrao
+		return this.methods - this.classes;
 	}
 	
 	private int getExecutorsData() {

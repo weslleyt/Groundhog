@@ -182,6 +182,8 @@ public class CrawlUpdateDates extends WebCrawler {
 						.getStringProperty("epona.CrawlProjectsNames.root"));
 		Vector<String> projects = readProjectsNames();
 
+		System.out.println("chegou");
+		
 		for (String s : projects) {
 			String url = String.format(
 					"http://sourceforge.net/projects/%s/files/", s);

@@ -67,7 +67,12 @@ public class CodeAnalyzerController {
 			//data.saveLog("C:/Epona/ArtigoNOVEMBRO/Log/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 
 			//data.saveLog("C:/Epona/ArtigoJANEIRO/Log/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
-			data.saveLog("/home/weslley/ServidorEpona/ProjetoTesteLog/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			//data.saveLog("/home/weslley/descompactar/n/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			
+			//teste 2015
+			data.saveLog("/home/weslley/logProjeto2015/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			//caminho no Tilapia
+			//data.saveLog("/home/wst/groundhog/LogProjetos2012/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			
 
 			//data.saveLog("C:/Epona/ArtigoJANEIRO/Log/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
@@ -78,7 +83,7 @@ public class CodeAnalyzerController {
 			//data.saveLog("C:/Epona/Projetos2012/log/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			
 			
-			data.saveLog("C:/Epona/ICSM/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			//data.saveLog("C:/Epona/ICSM/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			//data.saveLog("C:/TESTEnovo/log/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			
 			

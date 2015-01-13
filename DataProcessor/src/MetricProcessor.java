@@ -82,6 +82,7 @@ public abstract class MetricProcessor {
 								return true;						
 						
 					}
+					in.close();
 			} 
 				
 		}		
@@ -120,7 +121,7 @@ public abstract class MetricProcessor {
 		String name = projectVersion.getName();
 		if(name.startsWith("[")){
 			int year = Integer.parseInt(name.substring(1, 5));
-			if (year < yearVersion) 
+			if (year == yearVersion) 
 				return true;
 		}
 		return false;
@@ -136,7 +137,7 @@ public abstract class MetricProcessor {
 		String name = projectVersion.getName();
 		if(name.startsWith("[")){
 			int year = Integer.parseInt(name.substring(1, 5));
-			if (year < yearVersion) 
+			if (year == yearVersion) 
 				return true;
 		}		
 		return false;
@@ -217,6 +218,7 @@ public abstract class MetricProcessor {
 					
 				}
 			}
+			in.close();
 		}
 		if (size == true && limite == true)
 			return true;
@@ -402,12 +404,16 @@ public abstract class MetricProcessor {
 				
 				if(splitMetrics[0].trim().startsWith("Lines of Code")){
 					//Comentei a linha abaixo para poder limitar os projetos com mais de 20KLOC ou outros
-					//if( Integer.parseInt(splitMetrics[1].trim()) > threshold)
+					if( Integer.parseInt(splitMetrics[1].trim()) > threshold){
 					//Comentei a linha a baixo para não esquecer o intervalo analisado
-					//if( Integer.parseInt(splitMetrics[1].trim()) >= 1000 && Integer.parseInt(splitMetrics[1].trim()) < 20000 )
-					if( Integer.parseInt(splitMetrics[1].trim()) >= 20000 && Integer.parseInt(splitMetrics[1].trim()) <=100000 )
-					//if( Integer.parseInt(splitMetrics[1].trim()) > 100000 )
+					//	if( Integer.parseInt(splitMetrics[1].trim()) >= 1000 && Integer.parseInt(splitMetrics[1].trim()) < 20000 ){
+					//  if( Integer.parseInt(splitMetrics[1].trim()) >= 20000 && Integer.parseInt(splitMetrics[1].trim()) <=100000 ){
+					//  if( Integer.parseInt(splitMetrics[1].trim()) > 100000 ){
+						
+						in.close();
 						return true;
+					    //}
+					}
 				}
 				
 				//IMPLEMENTAR UM SWITCH AQUI PARA REALIZAR A ESCOLHA DO IF, mais r�pido
@@ -491,7 +497,7 @@ public abstract class MetricProcessor {
 			
 			
 		}
-			
+			in.close();
 			return false;			
 		
 	}

@@ -76,7 +76,7 @@ public class CheckRepeatedVersions {
 					//File newFile = new File(listFiles[j].getAbsolutePath().replace("C:", "C:/RepeatedVersions"));
 					//File newFile = new File(listFiles[j].getAbsolutePath().replace("C:", "C:/RepeatedVersionsVersaoDetalhada"));
 					//File newFile = new File(listFiles[j].getAbsolutePath().replace("C:", "C:/RepeatedVersionsVersaoOUTUBRO"));
-					File newFile = new File(listFiles[j].getAbsolutePath().replace("C:", "C:/Epona/ArtigoFevereiro/RepeatedVersionsFevereiro"));
+					File newFile = new File(listFiles[j].getAbsolutePath().replace("/home/wst/groundhog", "/home/wst/groundhog/LogProjetos2012/RepeatedVersionsDissertacao"));
 					
 					if(!newFile.getParentFile().exists())
 					{
@@ -104,10 +104,11 @@ public class CheckRepeatedVersions {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		System.out.println("foi");
 		//String sourceFolder = "C:/logsOficial/E_logs_LAST_VERSIONED/logs";
 		//String sourceFolder = "C:/Epona/logsGPCE/logs";
 		//String sourceFolder = "C:/Epona/AnaliseDetalhada/LogsAnaliseDetalhada";
-		String sourceFolder = "C:/Epona/ArtigoFevereiro/Log";
+		String sourceFolder = "/home/wst/groundhog/LogProjetos2012";
 		String destinyFolder = sourceFolder;
 		CheckRepeatedVersions parser = new CheckRepeatedVersions(sourceFolder,destinyFolder);
 		parser.folderSearch();

@@ -72,7 +72,7 @@ public class SingleMetricProcessFileManager extends MetricProcessFileManager {
 				out.newLine();
 				double n = metricsNumbers.get(i);
 				
-				System.out.println("valor do n = " + n);
+				System.out.println("valor do x = " + n);
 				if (getPrintProjectName()) {
 					out.write(projectNames.get(i) +","+ projectVersionsCount.get(i)+ "," + Double.toString(n));
 				} else {
@@ -88,7 +88,7 @@ public class SingleMetricProcessFileManager extends MetricProcessFileManager {
 				out.newLine();
 				double n = metricsNumbersDerived.get(i);
 				
-				System.out.println("valor do n = " + n);
+				System.out.println("valor do y = " + n);
 				if (getPrintProjectName()) {
 					out.write(projectNames.get(i) +","+ projectVersionsCount.get(i)+ "," + Double.toString(n));
 				} else {
@@ -97,7 +97,7 @@ public class SingleMetricProcessFileManager extends MetricProcessFileManager {
 			}
 		}
 
-		//para tirar o código do percento é necessário comentar a linha abaixo
+		//para tirar o cï¿½digo do percento ï¿½ necessï¿½rio comentar a linha abaixo
 		//ArrayList<Float> metricsNumbers = singleMetricProcessor.getMetricValuePercent();
 		
 		

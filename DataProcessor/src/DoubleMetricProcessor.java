@@ -13,6 +13,7 @@ public class DoubleMetricProcessor extends MetricProcessor{
 	private ArrayList<Integer> metricsNumber2;
 	private ArrayList<String> metricsNames;
 	private ArrayList<String> projectNames;
+	private ArrayList<String> projectNamesSecondVersion;
 	private ArrayList<Double> metricsRelationship = new ArrayList<Double>();
 	private ArrayList<Double> metricsCorrelation = new ArrayList<Double>();
 	private ArrayList<Double> metricsCorrelation2 = new ArrayList<Double>();
@@ -41,6 +42,7 @@ public class DoubleMetricProcessor extends MetricProcessor{
 		setMetricsNumber2(new ArrayList<Integer>());
 		metricsNames = new ArrayList<String>();	
 		setProjectNames(new ArrayList<String>());
+		setProjectNamesSecondVersion(new ArrayList<String>());
 		metricsNames.add(metric1);
 		metricsNames.add(metric2);
 		this.hasThreshold = hasTreshold;
@@ -57,6 +59,11 @@ public class DoubleMetricProcessor extends MetricProcessor{
 	}*/
 	
 	
+	public void setProjectNamesSecondVersion(
+			ArrayList<String> projectNamesSecondVersion) {
+		this.projectNamesSecondVersion = projectNamesSecondVersion;
+	}
+
 	@Override
 	public void writeMetrics() throws IOException
 	{	
@@ -194,7 +201,11 @@ public class DoubleMetricProcessor extends MetricProcessor{
 				value[0] = Integer.parseInt(splitMetrics[1].trim());					
 			}else if (splitMetrics[0].trim().equals(metricsNames.get(1))) {
 				value[1] = Integer.parseInt(splitMetrics[1].trim());	
-			}else if (splitMetrics[0].trim().equals("Lines of Code")) {
+				value[2] = Integer.parseInt(splitMetrics[1].trim());
+			}
+			
+			//comentei abaixo para gerar apenas de uma métrica, o correto é apagar
+			else if (splitMetrics[0].trim().equals("Lines of Code")) {
 				value[2] = Integer.parseInt(splitMetrics[1].trim());	
 			}
 			
@@ -240,6 +251,10 @@ public class DoubleMetricProcessor extends MetricProcessor{
 
 	public ArrayList<String> getProjectNames() {
 		return projectNames;
+	}
+	
+	public ArrayList<String> getProjectNamesSecondVersion() {
+		return projectNamesSecondVersion;
 	}
 
 

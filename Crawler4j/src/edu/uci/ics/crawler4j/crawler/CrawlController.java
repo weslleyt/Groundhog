@@ -47,7 +47,7 @@ public final class CrawlController {
 		envConfig.setTransactional(false);
 		envConfig.setLocking(false);
 
-		File envHome = new File(storageFolder + "/frontier");
+		File envHome = new File(storageFolder + "/frontier2");
 		if (!envHome.exists()) {
 			envHome.mkdir();
 		}

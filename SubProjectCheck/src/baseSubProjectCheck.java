@@ -35,7 +35,7 @@ public class baseSubProjectCheck {
 		//String sourceFolder = "C:/novosLogsCorrigidos";
 		//String sourceFolder = "C:/Epona/AnaliseDetalhada/LogsAnaliseDetalhada";
 		//String sourceFolder =  "C:/Epona/ArtigoOUTUBRO/Log";
-		String sourceFolder =  "C:/Epona/ArtigoFevereiro/Log";
+		String sourceFolder =  "/home/wst/groundhog/FinalProjects";
 
 
 		//System.out.println("fez alguma coisa");

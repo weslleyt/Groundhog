@@ -69,7 +69,19 @@ public class BaseParser {
 		
 		//BaseParser parser = new BaseParser("C:/Users/jbfan/Desktop/Dezembro");
 		
+		//BaseParser parser = new BaseParser("/home/weslley/ServidorEpona/projetoTeste");
+		
+		//teste
+		//BaseParser parser = new BaseParser("/home/weslley/projeto");
+
+		
+		//teste2015
 		BaseParser parser = new BaseParser("/home/weslley/ServidorEpona/projetoTeste");
+		
+		//projeto no tilapia
+		//BaseParser parser = new BaseParser("/home/wst/groundhog/ProjetosAntigosMovidos/ProjectsCopyprojetosCOMPLETOS");
+		
+		
 		//BaseParser parser = new BaseParser("C:/Epona/ArtigoJANEIROtesteNOVO/teste");
 		//BaseParser parser = new BaseParser("C:/Epona/Apache/ProjetosConfiguradosCorretamente/cassandra");
 		

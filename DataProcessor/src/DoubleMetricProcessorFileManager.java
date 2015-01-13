@@ -23,7 +23,6 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 	
 	public void writeMetricsIntoCSV(String nomeProjeto) throws IOException{
 		
-		System.out.println("Entrou");
 		
 		File destinyFolderFile = new File(destinyFolder);
 		
@@ -31,13 +30,11 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 			destinyFolderFile.mkdirs();
 		}
 		
-		System.out.println("meio");
 		
 		String csvFileName = getCsvFileName(nomeProjeto) + ".csv";
 		FileWriter log = new FileWriter(destinyFolderFile.getAbsolutePath() + "\\" + csvFileName);
         BufferedWriter out = new BufferedWriter(log);
         
-        System.out.println("quase");
         
         writeMetricNames(out);
         writeMetricValues(out);       
@@ -67,7 +64,6 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 		}*/
 		if (doubleMetricProcessor instanceof DateRelationshipMetricProcessor){
 			name += "Relationship";
-			System.out.println("relacao =)");
 		}
 		if (doubleMetricProcessor instanceof CorrelationMetricProcessor){
 			name += "_Correlation_AllProjects_" ;//+ nomeProjeto.replace("/", "-");
@@ -101,18 +97,14 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 		}*/
 		if (doubleMetricProcessor instanceof DateRelationshipMetricProcessor){
 			name += "Relationship";
-			System.out.println("relacao =)");
 		}
 		if (doubleMetricProcessor instanceof CorrelationMetricProcessor){
 			name = "Relationship" + doubleMetricProcessor.getProjectNames().get(1);
-			System.out.println("relacao =)");
-			System.out.println("name do projeto " + name);
 		}
 			
 		//descomentar abaixo para gerar grupo
 		if (doubleMetricProcessor instanceof DateDoubleMetricProcessor) {
 			
-			System.out.println("entrou certo 05/04/12");
 			
 			name += "_Date";
 			System.out.println("tipo do grupo: "+((DateDoubleMetricProcessor) doubleMetricProcessor).getGroup());
@@ -171,12 +163,38 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 			}
 		}
 		else*/
+		
+		if (doubleMetricProcessor instanceof GrandeDiferencaProjetosProcessor){
+			
+			ArrayList<Double> metricsNumbers1 = doubleMetricProcessor.getMetricsNumberNew1();
+			
+			ArrayList<String> projectNames = doubleMetricProcessor.getProjectNames();
+			ArrayList<String> projectNamesSecondVersion = doubleMetricProcessor.getProjectNamesSecondVersion();
+
+			ArrayList<Double> metricsNumbers2 = doubleMetricProcessor.getMetricsNumberNew2();
+
+			for (int i = 0, j = 0; j < projectNames.size(); i++, j++) {
+				out.newLine();
+				if (getPrintProjectName()) {
+					//teste
+					    if(i+1<metricsNumbers1.size()){                  
+						out.write(projectNames.get(j) + "," + metricsNumbers1.get(i)+ "," + metricsNumbers1.get(i+1)+ "," +
+								projectNamesSecondVersion.get(j) + "," + metricsNumbers2.get(i) + "," +  metricsNumbers2.get(i+1));
+						}
+				} else {
+					if (projectNames.size()>i && metricsNumbers1.size()>i && metricsNumbers2.size()>i)
+						out.write(metricsNumbers1.get(i) + "," + metricsNumbers1.get(i++) + ","  + metricsNumbers2.get(i) + "," +metricsNumbers2.get(i++));
+				}
+				i++;
+			}
+
+		}
+		
 		if (doubleMetricProcessor instanceof DateDoubleMetricProcessor){
 			
-			System.out.println("Ahazou 06/04");
 			ArrayList<Double> metricsNumbers1 = doubleMetricProcessor.getMetricsNumberNew1();
 
-			System.out.println("Valor é : " +doubleMetricProcessor.getMetricsNumberNew1().get(0));
+			//System.out.println("Valor é : " +doubleMetricProcessor.getMetricsNumberNew1().get(0));
 			
 			ArrayList<String> projectNames = doubleMetricProcessor.getProjectNames();
 
@@ -196,7 +214,6 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 		}
 		else if ((doubleMetricProcessor instanceof DateDoubleMetricProcessor) && !(doubleMetricProcessor instanceof CorrelationMetricProcessor)){
 			
-			System.out.println("Ahazou 17/10");
 			ArrayList<Double> metricsNumbers1 = doubleMetricProcessor.getMetricsNumberNew1();
 
 			System.out.println("Valor é : " +doubleMetricProcessor.getMetricsNumberNew1().get(0));
@@ -219,7 +236,6 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 		}
 		
 		else if (doubleMetricProcessor instanceof DateRelationshipMetricProcessor){
-			System.out.println("certo");
 			ArrayList<Double> metricsNumbers1 = doubleMetricProcessor.getMetricsRelationship();
 			ArrayList<String> projectNames = doubleMetricProcessor.getProjectNames();
 			
@@ -231,7 +247,6 @@ public class DoubleMetricProcessorFileManager extends MetricProcessFileManager {
 			}
 		}
 		else if (doubleMetricProcessor instanceof CorrelationMetricProcessor){
-			System.out.println("FUNCIONOU");
 			ArrayList<Double> metricsNumbers1 = doubleMetricProcessor.getCorrelationMetrics();
 			ArrayList<Double> metricsNumbers2 = doubleMetricProcessor.getCorrelationMetrics2();
 			ArrayList<String> projectNames = doubleMetricProcessor.getProjectNames();

@@ -17,12 +17,15 @@ public class parserChecker {
 		//recursiveSearchLineCodeZero(fileSourceFolder);
 		
 		//String rootSourceFolder = "C:/Epona/logsGPCE/logs";
-		String rootSourceFolder = "C:/Epona/AnaliseDetalhada/LogsAnaliseDetalhada";
+		System.out.println("entrou");
 		
+		String rootSourceFolder = "/home/wst/groundhog/LogProjetos2012";
 		
+		System.out.println("meio");
 		fileSourceFolder = new File(rootSourceFolder);
 		recursiveSearchEmptyFolder(fileSourceFolder);
 		recursiveSearchLineCodeZero(fileSourceFolder);
+		System.out.println("saiu");
 		System.out.println(count);
 	}
 
@@ -44,7 +47,7 @@ public class parserChecker {
 							in.close();
 							String path = subFiles[i].getAbsolutePath();
 							//path = path.replace("C:", "C:\\removedLogsLinux");
-							path = path.replace("C:", "C:\\removidosVersaoDetalhada");
+							path = path.replace("/home/wst/groundhog", "/home/wst/groundhog/LogProjetos2012/removidosVersaoDissertacao");
 							File newFile = new File(path);
 							if(!newFile.getParentFile().exists())
 							{
