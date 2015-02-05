@@ -100,6 +100,7 @@ public class CollectedData {
     
     //atualizacao jss
     public int classes;
+    public int classesOutro;
     public int methods;
     
     
@@ -120,7 +121,7 @@ public class CollectedData {
 	        BufferedWriter out = new BufferedWriter(log);
 	        
 	        out.write("classes :              " + classes + "\n");
-	        out.write("methods :              " + this.getTotalMethods() + "\n");
+	        out.write("methods :              " + methods + "\n");
 	        	        
 	        out.write("extends Thread :              " + extendsThread + "\n");
 	        out.write("implements Runnable :         " + implementsRunnable + "\n");
@@ -238,12 +239,6 @@ public class CollectedData {
 	{
 		return this.future + this.response + this.runnableFuture + this.runnableScheduledFuture + this.scheduledFuture +
 			this.forkJoinTask +  this.futureTask + this.recursiveAction + this.recursiveTask + this.swingWorker;
-	}
-	
-	
-	private int getTotalMethods(){
-		//preciso diminuir com o numero de classes pois ele conta com o construtor padrao
-		return this.methods - this.classes;
 	}
 	
 	private int getExecutorsData() {

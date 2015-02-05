@@ -43,7 +43,9 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
     public Object visitNewClass(NewClassTree arg0, Trees arg1) {
     	ExpressionTree type = arg0.getIdentifier();
 
+    	
     	if (type != null){
+    		
     		if (type.toString().equals("Hashtable")
     				||type.toString().contains("Hashtable<")){
     			data.hashtable++;
@@ -130,8 +132,13 @@ public class CodeAnalyzerTreeVisitor extends TreePathScanner<Object, Trees> {
     public Object visitClass(ClassTree classTree, Trees trees) {    	
     	Tree extendsClause = classTree.getExtendsClause();
     	
-    	//numero de classes
-    	data.classes++;
+    	
+    	    	
+    	if(classTree.getKind() == Kind.CLASS && !classTree.getModifiers().toString().contains("interface")){
+    		//numero de classes
+        	data.classes++;
+    	}
+    	
     	
     	if (extendsClause != null){  	
     		if (extendsClause.toString().equals("Thread")){

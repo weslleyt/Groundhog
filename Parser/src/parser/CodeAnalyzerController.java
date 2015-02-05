@@ -70,9 +70,12 @@ public class CodeAnalyzerController {
 			//data.saveLog("/home/weslley/descompactar/n/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			
 			//teste 2015
-			data.saveLog("/home/weslley/logProjeto2015/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			//data.saveLog("/home/weslley/logProjeto2015/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			//caminho no Tilapia
 			//data.saveLog("/home/wst/groundhog/LogProjetos2012/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			//caminho no Tilapia 2015
+			//data.saveLog("/home/wst/groundhog/LogProjetos2015GrupoNovo/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
+			data.saveLog("/home/weslley/TesteWalaFev/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);
 			
 
 			//data.saveLog("C:/Epona/ArtigoJANEIRO/Log/" + file.getParentFile().getParentFile().getName()+"/"+ file.getParentFile().getName(), file);

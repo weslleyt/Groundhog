@@ -19,7 +19,7 @@ public class parserChecker {
 		//String rootSourceFolder = "C:/Epona/logsGPCE/logs";
 		System.out.println("entrou");
 		
-		String rootSourceFolder = "/home/wst/groundhog/LogProjetos2012";
+		String rootSourceFolder = "/home/wst/groundhog/LogProjetos2015";
 		
 		System.out.println("meio");
 		fileSourceFolder = new File(rootSourceFolder);
@@ -47,7 +47,7 @@ public class parserChecker {
 							in.close();
 							String path = subFiles[i].getAbsolutePath();
 							//path = path.replace("C:", "C:\\removedLogsLinux");
-							path = path.replace("/home/wst/groundhog", "/home/wst/groundhog/LogProjetos2012/removidosVersaoDissertacao");
+							path = path.replace("/home/wst/groundhog", "/home/wst/groundhog/LogProjetos2015/removidos2015");
 							File newFile = new File(path);
 							if(!newFile.getParentFile().exists())
 							{

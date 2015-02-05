@@ -76,10 +76,14 @@ public class BaseParser {
 
 		
 		//teste2015
-		BaseParser parser = new BaseParser("/home/weslley/ServidorEpona/projetoTeste");
+		//BaseParser parser = new BaseParser("/home/weslley/ServidorEpona/projetoTeste");
+		//BaseParser parser = new BaseParser("/home/weslley/testeContagem");
 		
 		//projeto no tilapia
 		//BaseParser parser = new BaseParser("/home/wst/groundhog/ProjetosAntigosMovidos/ProjectsCopyprojetosCOMPLETOS");
+		//projeto tilapia 2015
+		//BaseParser parser = new BaseParser("/home/wst/groundhog/Projetos/grupoNovo");
+		BaseParser parser = new BaseParser("/home/weslley/testeContagemWala");
 		
 		
 		//BaseParser parser = new BaseParser("C:/Epona/ArtigoJANEIROtesteNOVO/teste");
