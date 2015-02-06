@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;parserChecker.java&apos; to &apos;util.parserChecker.java&apos;&#x0A;- Original project: &apos;Parser&apos;&#x0A;- Destination element: &apos;util.parserChecker.java&apos;&#x0A;- Original element: &apos;util.parserChecker.java&apos;" description="Copy compilation unit" destination="/src&lt;util{parserChecker.java" element1="/src&lt;util{parserChecker.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1340294448263" units="1" version="1.0"/>
+</session>

@@ -1,0 +1,163 @@
+package util;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class CheckCopyOldToNewProjects {
+
+	static File fileSourceFolder;
+	static File fileSourceFolderNew;
+	static int count= 0;
+
+	public static void main(String[] args) throws IOException {
+//		String rootSourceFolder = "C:/logslinux";
+//		fileSourceFolder = new File(rootSourceFolder);
+		//recursiveSearchLineCodeZero(fileSourceFolder);
+		
+		//String rootSourceFolder = "C:/Epona/logsGPCE/logs";
+		String rootSourceFolder = "/home/weslley/projeto";
+		
+		String rootSourceFolderNew = "/home/weslley/TestandoUtil/Projetos";
+		
+		fileSourceFolder = new File(rootSourceFolder);
+		fileSourceFolderNew = new File(rootSourceFolderNew);
+		//recursiveSearchEmptyFolder(fileSourceFolder);
+		recursiveSearchLineCodeZero(fileSourceFolder, fileSourceFolderNew);
+		System.out.println(count);
+	}
+
+	public static void moveProjects(File file)throws IOException {
+		
+		System.out.println("Chegou aqui");
+		
+		File subFiles[] = file.listFiles();
+		
+		for (int i=0; i<subFiles.length ; i++){
+			
+			if (subFiles[i].isDirectory()) {
+				moveProjects(subFiles[i]);
+			}else if (subFiles[i].isFile()) {
+						String path = subFiles[i].getAbsolutePath();
+						//path = path.replace("C:", "C:\\removedLogsLinux");
+						path = path.replace("/home/weslley", "/home/weslley/novosProjetos/");
+						File newFile = new File(path);
+						if(!newFile.getParentFile().exists())
+						{
+							newFile.getParentFile().mkdirs();
+						}
+						subFiles[i].renameTo(newFile);
+						break;
+					}
+		}
+
+
+		
+	}
+		
+	public static void recursiveSearchLineCodeZero(File file, File fileNew) throws IOException {
+		File subFiles[] = file.listFiles();
+		File subFiles2[] = fileNew.listFiles();
+		
+		//String oldGroupProjectName;
+		//String newGroupProjectName;
+		
+		boolean mustCopy = true;
+		
+		if (subFiles != null)
+			for (int i = 0; i < subFiles.length; i++) {
+				mustCopy =true;
+				if (subFiles2!=null)
+					for (int x = 0; x < subFiles2.length; x++) {
+						if (subFiles2[x].isDirectory()){ 
+							if (subFiles2[x].getName().endsWith("grupo1") || subFiles2[x].getName().endsWith("grupo2")){
+								File secondLevel[] = subFiles2[x].listFiles();
+								for (int y = 0; y < secondLevel.length; y++) {
+									if (secondLevel[y].getName().equals("1") || secondLevel[y].getName().equals("2")){
+										File thirdLevel[] = secondLevel[y].listFiles();
+										for (int h = 0; h < thirdLevel.length; h++){ 
+											if (subFiles[i].getName().equalsIgnoreCase(thirdLevel[h].getName()))
+												mustCopy = false;
+											if (!mustCopy)
+												break;
+										}
+
+									}
+									if (!mustCopy)
+										break;	
+								}
+							}
+							if (subFiles2[x].getName().endsWith("grupo3") || subFiles2[x].getName().endsWith("grupo4")
+									|| subFiles2[x].getName().endsWith("grupo5") || subFiles2[x].getName().endsWith("grupo6")
+									|| subFiles2[x].getName().endsWith("grupo7") || subFiles2[x].getName().endsWith("grupo8")
+									|| subFiles2[x].getName().endsWith("grupo9")){
+
+								File secondLevel[] = subFiles2[x].listFiles();
+								for (int h = 0; h < secondLevel.length; h++){ 
+									if (subFiles[i].getName().equalsIgnoreCase(secondLevel[h].getName()))
+										mustCopy = false;
+									if (!mustCopy)
+										break;
+								}
+							}							
+							if (!mustCopy)
+								break;													
+						}						
+					}
+				if (subFiles[i].isDirectory() && mustCopy){
+					System.out.println(subFiles[i].getName());
+					moveProjects(subFiles[i]);
+					count++;
+				}
+				//fazer a cópia do arquivo;
+			}
+	}
+	
+	public static void recursiveSearchEmptyFolder(File file) throws IOException {
+		File subFiles[] = file.listFiles();
+
+		if (subFiles != null) {
+			for (int i = 0; i < subFiles.length; i++) {
+				if (subFiles[i].isDirectory()) {
+					if(subFiles[i].listFiles().length == 0)
+					{
+						System.out.println(subFiles[i].getAbsolutePath());
+						subFiles[i].delete();
+					}
+					recursiveSearchEmptyFolder(subFiles[i]);
+				}
+			}
+		}
+	}
+	
+	public static void recursiveSearchLineCodeCount(File file) throws IOException {
+		File subFiles[] = file.listFiles();
+
+		if (subFiles != null) {
+			for (int i = 0; i < subFiles.length; i++) {
+				if (subFiles[i].isDirectory()) {
+					recursiveSearchLineCodeCount(subFiles[i]);
+				} else if (subFiles[i].isFile()
+						&& !subFiles[i].getName().contains("lv-.txt")) {
+
+					BufferedReader in = new BufferedReader(new FileReader(subFiles[i]));
+					String str;
+					while ((str = in.readLine()) != null) {
+
+						if (str.contains("Lines of Code")) {
+							String[] metric= str.split(":");
+							count += Integer.parseInt(metric[1].trim());
+						}
+					}
+					
+					in.close();
+					
+				}
+			}
+		}
+	}
+
+}
+

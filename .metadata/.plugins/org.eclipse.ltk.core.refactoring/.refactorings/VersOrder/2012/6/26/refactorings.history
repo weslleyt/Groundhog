@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;CheckRepeatedVersions.java&apos; to &apos;versionOrder.CheckRepeatedVersions.java&apos;&#x0A;- Original project: &apos;VersOrder&apos;&#x0A;- Destination element: &apos;versionOrder.CheckRepeatedVersions.java&apos;&#x0A;- Original element: &apos;versionOrder.CheckRepeatedVersions.java&apos;" description="Copy compilation unit" destination="/src&lt;versionOrder{CheckRepeatedVersions.java" element1="/src&lt;versionOrder{CheckRepeatedVersions.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1340292534631" units="1" version="1.0"/>
+</session>

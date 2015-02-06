@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="OptionalMessageDialog.hide.">
+		<item value="false" key="RunnableJar.export.ipwarning"/>
+	</section>
+	<section name="completion_proposal_size">
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="3" key="pageIndex"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item value="/home/weslley/ServidorEpona/OldProjects.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="BaseParser - Parser" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
+		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="/home/weslley/ServidorEpona/OldProjects.jar"/>
+			<item value="/home/weslley/ServidorEpona/CheckCopyOldToNewProjects.jar"/>
+			<item value="/home/weslley/ServidorEpona/ParserGroundhog9.jar"/>
+			<item value="/home/weslley/ServidorEpona/ParserGroundhog8.jar"/>
+			<item value="/home/weslley/ServidorEpona/ParserGroundhog7.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value=".xml"/>
+		</list>
+	</section>
+</section>
