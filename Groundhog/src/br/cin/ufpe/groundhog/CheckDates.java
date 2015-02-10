@@ -21,7 +21,9 @@ public class CheckDates {
 		//String root = "C:/Epona/ICSM/log";
 		//String root = "/home/wst/groundhog/LogProjetos2015";
 		//String root = "/home/weslley/mestrado/FinalProjects";
-		String root = "/home/weslley/ArtigoGroundHog2015/LogProjetos2015";
+		//String root = "/home/weslleytorres/ArtigoGroundHog2015/LogProjetos2015";
+		String root = "/Users/weslleytorres/Google Drive/doutorado/ArtigoGroundHogJSS/Dados/LogProjetos2015";
+		
 		//String root = "/home/weslley/mestrado2014/FinalProjects";
 
 //		Vector<String> listaProjetosNaoDatados = null;
@@ -62,7 +64,7 @@ public class CheckDates {
 			}//System.out.println("asdasd" + x);
 			if (completed){
 				okProjects++;
-				//System.out.println(firstLevel[i].getName());
+				System.out.println(firstLevel[i].getName());
 			}else{
 				badProjects++;
 				completed = true;

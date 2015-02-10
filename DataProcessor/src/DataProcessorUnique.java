@@ -33,30 +33,30 @@ public class DataProcessorUnique {
 		//String rootDestinyFolder = "/home/weslley/mestrado/spe/respRevChato18Janeiro2014Correlacao/";
 		//String rootDestinyFolder = "/home/weslley/mestrado/spe/diferencaGrandeValorBrutoProjetosDiminuiramInclusos/";
 		
-		String rootDestinyFolder = "/home/weslley/mestrado2014/Resultados";
+		//String rootDestinyFolder = "/home/weslley/mestrado2014/Resultados";
 		
 		
 		//String rootDestinyFolder = "C:/Epona/TMCcorrecao/AnaliseIndividual/Backport";
 		
 
-		//String projectsByCategoriesFolder = "/home/weslley/projetcsByCategory";
+		String projectsByCategoriesFolder = "/Users/weslleytorres/Google Drive/doutorado/ArtigoGroundHogJSS/Dados/projetcsByCategory";
 		
-		String metricsNameSourceFolder = "/home/weslley/mestrado2014/metricsNames.txt";
+		//String metricsNameSourceFolder = "/home/weslley/mestrado2014/metricsNames.txt";
 		
 		fileSourceFolder = new File(rootSourceFolder);
-		File metricsNameFile = new File(metricsNameSourceFolder);
-		//fillProjectsCategory(projectsByCategoriesFolder);
+		//File metricsNameFile = new File(metricsNameSourceFolder);
+		fillProjectsCategory(projectsByCategoriesFolder);
 
-		MetricProcessFileManager.destinyFolder = rootDestinyFolder;
+		//MetricProcessFileManager.destinyFolder = rootDestinyFolder;
 
 		//verifica qual categoria faz parte
-//	compareProjectsCategory(projectsByCategoriesFolder, rootSourceFolder);
+		//	compareProjectsCategory(projectsByCategoriesFolder, rootSourceFolder);
 		
 		// JUCContructsMetricProcessor juc = new JUCContructsMetricProcessor(
 		// "j.u.c", true, true,true);
 		// juc.process(fileSourceFolder);
 		
-		 ArrayList<String> metricsNames = getMetricNames(metricsNameFile);
+		//ArrayList<String> metricsNames = getMetricNames(metricsNameFile);
 
 		 
 			//LOC Por ano escolhido	
@@ -90,8 +90,8 @@ public class DataProcessorUnique {
 		 
 		 
 		 //Para gerar as metricas gerais
-		 generateSingleMetrics(metricsNames, false,true,true,false);	 
-		 generateSingleMetrics(metricsNames, true,true,true,false);
+		// generateSingleMetrics(metricsNames, false,true,true,false);	 
+		// generateSingleMetrics(metricsNames, true,true,true,false);
 		 		 
 		// soma LOC normal	
 		// LoCMetricProcessor loc = new LoCMetricProcessor(true);

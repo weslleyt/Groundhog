@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 import javax.swing.Box.Filler;
 
-public class DataProcessor {
+public class ProjectCategory {
 
 	public static ArrayList<ArrayList<String>> projectsByCategory = new ArrayList<ArrayList<String>>();
 	public static ArrayList<String> categoriesName = new ArrayList<String>();
@@ -18,45 +18,34 @@ public class DataProcessor {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		//String rootSourceFolder = "C:/Epona/logsGPCE/A_logs_REMOVED_EMPTY_FOLDERS_BY_DATE";
-		//String rootSourceFolder = "C:/Epona/logsGPCE/logs";
-//		String rootSourceFolder = "C:/novosLogsCorrigidos";
-//		String rootDestinyFolder = "C:/Epona/smash/correlacao";
-		String metricsNameSourceFolder = "/Users/weslleytorres/Google Drive/doutorado/ArtigoGroundHogJSS/Dados/projectsNames.txt";
+		
+		String projectsNameSourceFolder = "/Users/weslleytorres/Google Drive/doutorado/ArtigoGroundHogJSS/Dados/projectsNames.txt";
 		String projectsByCategoriesFolder = "/Users/weslleytorres/Google Drive/doutorado/ArtigoGroundHogJSS/Dados/projetcsByCategory";
+		
 
-//		fileSourceFolder = new File(rootSourceFolder);
-		File metricsNameFile = new File(metricsNameSourceFolder);
+		File projectsNamesFile = new File(projectsNameSourceFolder);
 		fillProjectsCategory(projectsByCategoriesFolder);
 
-//		MetricProcessFileManager.destinyFolder = rootDestinyFolder;
-
-	//	// JUCContructsMetricProcessor juc = new JUCContructsMetricProcessor(
-		// "j.u.c", true, true,true);
-	//	 juc.process(fileSourceFolder);
 		
-		 ArrayList<String> metricsNames = getMetricNames(metricsNameFile);
+		 ArrayList<String> projectsNames = getProjectcNames(projectsNamesFile);
 		 
-		// SingleMetricProcessor smp = new SingleMetricProcessor(
-		//		 "j.u.c", true, true,true);
-	////	smp.process(fileSourceFolder);
-		 
-		 AllProjectbyCategoryMetricProcessor a = new AllProjectbyCategoryMetricProcessor();
-		 a.process(fileSourceFolder);
+		 listarProjetosCategoria(projectsNames);
 		
 
 	}
 
-	private static void generateSingleMetrics(ArrayList<String> metricsNames,
-			boolean hasThreshold, boolean printProjectName, boolean hasMetric)
-			throws IOException {
-
-		for (int i = 0; i < metricsNames.size(); i++) {
-			SingleMetricProcessor smp = new SingleMetricProcessor(
-					metricsNames.get(i), hasThreshold, printProjectName,
-					hasMetric);
-			smp.process(fileSourceFolder);
+	
+	public static void listarProjetosCategoria(ArrayList<String> projectsNames){
+		
+		for(int i = 1; i < categoriesName.size() ; i++){
+			System.out.println("\n CATEGORIA " + categoriesName.get(i)+ ":");
+			for (String nomeProjeto : projectsNames) {
+				if(projectsByCategory.get(i).contains(nomeProjeto)){
+					System.out.println(nomeProjeto);
+				}
+			}
 		}
+		
 	}
 
 	private static void fillProjectsCategory(String sourceFolder)
@@ -78,7 +67,7 @@ public class DataProcessor {
 		}
 	}
 
-	private static ArrayList<String> getMetricNames(File file)
+	private static ArrayList<String> getProjectcNames(File file)
 			throws IOException {
 
 		BufferedReader in = new BufferedReader(new FileReader(file));
