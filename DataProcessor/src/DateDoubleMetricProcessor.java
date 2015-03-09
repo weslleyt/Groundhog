@@ -43,6 +43,13 @@ public class DateDoubleMetricProcessor extends DoubleMetricProcessor {
 
 	}
 
+	public DateDoubleMetricProcessor(String metric1, String metric2, boolean hasTreshold, boolean printProjectName) {
+		super(metric1, metric2, hasTreshold, printProjectName);
+
+		initializeDates();
+
+	}
+
 	public DateDoubleMetricProcessor(String metric1, String metric2, boolean hasTreshold, boolean printProjectName, boolean isOldRecent) {
 		super(metric1, metric2, hasTreshold, printProjectName);
 		this.isOldRecent = isOldRecent;
@@ -285,8 +292,8 @@ public class DateDoubleMetricProcessor extends DoubleMetricProcessor {
 				if (isRecentVersion(year, month)) {
 					recentVersions.add(version);
 				}// else if (isMiddleVersion(year)) {
-					// middleVersions.add(version);
-					// } else
+				// middleVersions.add(version);
+				// } else
 
 				if (isOldVersion(year, month)) {
 					oldVersions.add(version);
