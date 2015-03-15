@@ -19,6 +19,18 @@ public class ProjectDataProcessor {
 	public List<Projeto> getProjetos() {
 		return projetos;
 	}
+	
+	public Projeto getProjectByName(String nome){
+		Projeto proj = null;
+		for (Projeto projeto : projetos) {
+			if (projeto.getNome().equals(nome))
+				proj = projeto;
+		}
+		
+		return proj;
+		
+		//return projetos.get(projetos.indexOf(new Projeto(nome)));
+	}
 
 	public void setProjetos(List<Projeto> projetos) {
 		this.projetos = projetos;
@@ -58,10 +70,57 @@ public class ProjectDataProcessor {
 		}
 	}
 	
-	public void fillProjectVersion(String logSourceFolder){
-	
+	public void fillProjectVersions(File sourceFolder,boolean isRootFolder, String nomeProjeto){
+		
+		
+		File subFiles[] = sourceFolder.listFiles();
+
+		if (subFiles != null) {
+			for (int i = 0; i < subFiles.length; i++) {
+				
+				if (nomeProjeto==null || subFiles.length >1000){
+					String nome = subFiles[i].getName();
+					Projeto projeto = getProjectByName(nome);
+					if (projeto!=null){
+						nomeProjeto = nome;
+					}
+				}
+				
+//				if (subFiles[i].isDirectory()) { //Projeto Principal
+//					nomeProjeto = subFiles[i].getName();
+//					fillProjectVersions(subFiles[i],false,nomeProjeto);
+//				}else 		
+				if (subFiles[i].isDirectory()) { //Subprojetos					
+					fillProjectVersions(subFiles[i],false,nomeProjeto);
+				} else if (subFiles[i].isFile() && !subFiles[i].getName().contains("lv-.txt")) { //versões do projeto
+//					if (i == 0) {
+//						ArrayList<File> files = new ArrayList<File>();
+//						files.add(subFiles[i]);
+					
+					Projeto projeto = getProjectByName(nomeProjeto);
+					
+					Projeto subProjeto = new Projeto(subFiles[i].getParentFile().getName());
+					if(!projeto.getSubProjetos().contains(subProjeto)){
+						projeto.getSubProjetos().add(subProjeto);
+					}
+					
+					//projeto.getVersoes().add(new Versao(subFiles[i]));
+					Versao versao = new Versao((subFiles[i]));
+					projeto.getSubProjetos().get(projeto.getSubProjetos().indexOf(subProjeto)).getVersoes().add(versao);
+					
+//						projectVersions.add(files);
+//					} else {
+//						projectVersions.get(projectVersions.size() - 1).add(subFiles[i]);
+//					}
+				}
+			}
+		}
 		
 	}
+	
+	
+	
+	
 	
 	
 

@@ -1,12 +1,20 @@
 package br.ufpe.cin.jss;
 
+import java.io.File;
+
 public class Versao {
 
+	private File versaoLog;
 	private String identificador;	
 	private Integer nClasses; 
 	private Integer nMetodos;
 	private Integer loc;
 	
+	
+	public Versao(File versaoLog){
+		this.versaoLog = versaoLog;
+		this.identificador = versaoLog.getName();		
+	}
 	
 	public Versao(String identificador, Integer nClasses, Integer nMetodos,
 			Integer loc) {
@@ -40,6 +48,14 @@ public class Versao {
 	}
 	public void setLoc(Integer loc) {
 		this.loc = loc;
+	}
+
+	public File getVersaoLog() {
+		return versaoLog;
+	}
+
+	public void setVersaoLog(File versaoLog) {
+		this.versaoLog = versaoLog;
 	}
 	
 }
