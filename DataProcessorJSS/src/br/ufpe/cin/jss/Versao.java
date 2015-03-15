@@ -1,6 +1,9 @@
 package br.ufpe.cin.jss;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class Versao {
 
@@ -11,11 +14,12 @@ public class Versao {
 	private Integer loc;
 	
 	
-	public Versao(File versaoLog){
+	public Versao(File versaoLog) throws NumberFormatException, IOException{
 		this.versaoLog = versaoLog;
-		this.identificador = versaoLog.getName();		
+		this.identificador = versaoLog.getName();	
+		fillVersao();
 	}
-	
+
 	public Versao(String identificador, Integer nClasses, Integer nMetodos,
 			Integer loc) {
 		super();
@@ -23,7 +27,7 @@ public class Versao {
 		this.nClasses = nClasses;
 		this.nMetodos = nMetodos;
 		this.loc = loc;
-	}
+	}	
 	
 	public String getIdentificador() {
 		return identificador;
@@ -56,6 +60,36 @@ public class Versao {
 
 	public void setVersaoLog(File versaoLog) {
 		this.versaoLog = versaoLog;
+	}
+	
+	private void fillVersao() throws NumberFormatException, IOException {
+		
+		BufferedReader in = new BufferedReader(new FileReader(this.versaoLog));
+		
+		String str;
+		while ((str = in.readLine()) != null) {
+			String[] splitMetrics = str.split(":");
+			
+			Integer value = Integer.parseInt(splitMetrics[1].trim());
+			
+			switch (splitMetrics[0].trim()) {
+			case "classes":
+				this.nClasses = value;				
+				break;
+			case "methods":
+				this.nMetodos = value;
+				break;
+			case "Lines of Code":
+				this.loc = value;
+				break;
+
+			default:
+				break;
+			}
+		}
+		
+		in.close();
+		
 	}
 	
 }

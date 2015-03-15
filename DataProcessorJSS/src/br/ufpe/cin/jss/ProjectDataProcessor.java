@@ -70,7 +70,7 @@ public class ProjectDataProcessor {
 		}
 	}
 	
-	public void fillProjectVersions(File sourceFolder,boolean isRootFolder, String nomeProjeto){
+	public void fillProjectVersions(File sourceFolder,boolean isRootFolder, String nomeProjeto) throws NumberFormatException, IOException{
 		
 		
 		File subFiles[] = sourceFolder.listFiles();
