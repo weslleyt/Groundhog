@@ -15,13 +15,16 @@ public abstract class MetricProcessor {
 	public boolean toSort = true;
 
 	public void recursiveSearch(File file) throws IOException {
-		File subFiles[] = file.listFiles();
+		File subFiles[] = removeArquivosOcultos(file.listFiles());
 
 		if (subFiles != null) {
 			for (int i = 0; i < subFiles.length; i++) {
 				if (subFiles[i].isDirectory()) {
 					recursiveSearch(subFiles[i]);
 				} else if (subFiles[i].isFile() && !subFiles[i].getName().contains("lv-.txt")) {
+					if (subFiles[i].getName().contains(".DS_Store") || subFiles[i].getName().contains("Icon")) {
+						System.out.println("teste");
+					}
 					if (i == 0) {
 						ArrayList<File> files = new ArrayList<File>();
 						files.add(subFiles[i]);
@@ -32,6 +35,20 @@ public abstract class MetricProcessor {
 				}
 			}
 		}
+	}
+
+	public File[] removeArquivosOcultos(File subFiles[]) {
+
+		ArrayList<File> arquivos = new ArrayList<File>();
+
+		for (int i = 0; i < subFiles.length; i++) {
+			if (!subFiles[i].getName().contains(".DS_Store") && !subFiles[i].getName().contains("Icon")) {
+				arquivos.add(subFiles[i]);
+			}
+		}
+
+		return arquivos.toArray(new File[arquivos.size()]);
+
 	}
 
 	public abstract void readMetrics() throws IOException;
@@ -421,9 +438,9 @@ public abstract class MetricProcessor {
 				// Comentei a linha abaixo para poder limitar os projetos com mais de 20KLOC ou outros
 				if (Integer.parseInt(splitMetrics[1].trim()) > threshold) {
 					// Comentei a linha a baixo para não esquecer o intervalo analisado
-					// if( Integer.parseInt(splitMetrics[1].trim()) >= 1000 && Integer.parseInt(splitMetrics[1].trim()) < 20000 ){
-					// if( Integer.parseInt(splitMetrics[1].trim()) >= 20000 && Integer.parseInt(splitMetrics[1].trim()) <=100000 ){
-					// if( Integer.parseInt(splitMetrics[1].trim()) > 100000 ){
+					// if (Integer.parseInt(splitMetrics[1].trim()) >= 1000 && Integer.parseInt(splitMetrics[1].trim()) < 20000) {
+					// if (Integer.parseInt(splitMetrics[1].trim()) >= 20000 && Integer.parseInt(splitMetrics[1].trim()) <= 100000) {
+					// if (Integer.parseInt(splitMetrics[1].trim()) > 100000) {
 
 					in.close();
 					return true;
