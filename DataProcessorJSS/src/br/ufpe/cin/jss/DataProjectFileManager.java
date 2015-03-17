@@ -35,17 +35,17 @@ public class DataProjectFileManager {
 		FileWriter log = new FileWriter(destinyFolderFile.getAbsolutePath() + "//" + csvFileName);
         BufferedWriter out = new BufferedWriter(log);
         
-        out.write("Project Name; Categories;Subproject; #version; versionName;#classes; #methods;loc");
+        out.write("Project Name; Categories;Subproject; #version;isConcurrent; versionName;#classes; #methods;loc");
         out.newLine();
-        out.write(projeto.getNome() + ";" + projeto.getCategoria());  
+        out.write(projeto.getNome() + ";" + projeto.getCategories());  
         
         out.newLine();
         
-        for (Projeto sub : projeto.getSubProjetos()) {
-        	 out.write(";;"+sub.getNome()+";"+sub.getVersoes().size());
+        for (SubProject sub : projeto.getSubProjetos()) {
+        	 out.write(";;"+sub.getNome()+";"+sub.getVersions().size()+";"+sub.isConcurrent());
         	 out.newLine();
-        	 for (Versao version : sub.getVersoes()) {
-        		 out.write(";;;;"+version.getIdentificador()+";"+version.getnClasses()+";"+version.getnMetodos()+";"+version.getLoc());
+        	 for (Versao version : sub.getVersions()) {
+        		 out.write(";;;;;"+version.getIdentificador()+";"+version.getnClasses()+";"+version.getnMetodos()+";"+version.getLoc());
         		 out.newLine();
 			}
 		}

@@ -2,6 +2,7 @@ package br.ufpe.cin.jss;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -58,9 +59,9 @@ public class ProjectDataProcessor {
 				if (projetos.contains(projeto))
 				{
 					projeto = projetos.get(projetos.indexOf(projeto));
-					projeto.getCategoria().add(categoriesName);
+					projeto.getCategories().add(categoriesName);
 				}else {
-					projeto.getCategoria().add(categoriesName);
+					projeto.getCategories().add(categoriesName);
 					projetos.add(projeto);
 				}			
 				
@@ -99,14 +100,14 @@ public class ProjectDataProcessor {
 					
 					Projeto projeto = getProjectByName(nomeProjeto);
 					
-					Projeto subProjeto = new Projeto(subFiles[i].getParentFile().getName());
+					SubProject subProjeto = new SubProject(subFiles[i].getParentFile().getName());
 					if(!projeto.getSubProjetos().contains(subProjeto)){
 						projeto.getSubProjetos().add(subProjeto);
 					}
 					
 					//projeto.getVersoes().add(new Versao(subFiles[i]));
 					Versao versao = new Versao((subFiles[i]));
-					projeto.getSubProjetos().get(projeto.getSubProjetos().indexOf(subProjeto)).getVersoes().add(versao);
+					projeto.getSubProjetos().get(projeto.getSubProjetos().indexOf(subProjeto)).getVersions().add(versao);
 					
 //						projectVersions.add(files);
 //					} else {
@@ -114,6 +115,42 @@ public class ProjectDataProcessor {
 //					}
 				}
 			}
+		}		
+		
+	}
+	
+	public void fillConcurrencyPropertie(File concurrentProjectListFile) throws IOException{
+		
+		BufferedReader in = new BufferedReader(new FileReader(concurrentProjectListFile));
+		
+		String str;
+		Projeto project;
+		SubProject subProject;
+		
+		while ((str = in.readLine()) != null) {
+			if(str.indexOf("/")!=-1){
+				String[] split = str.split("/");
+				
+				String projectName = split[1];
+				String subProjectName = split[2];
+				
+				project = new Projeto(projectName);
+				
+				if (projetos.contains(project))
+				{
+					project = projetos.get(projetos.indexOf(project));
+					subProject = new SubProject(subProjectName);
+					
+					List<SubProject> subProjetos = project.getSubProjetos();
+					
+					if (subProjetos.contains(subProject))
+					{
+						subProject = subProjetos.get(subProjetos.indexOf(subProject));
+						subProject.setConcurrent(true);
+					}
+				}
+			}
+			
 		}
 		
 	}

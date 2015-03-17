@@ -6,40 +6,40 @@ import java.util.List;
 public class Projeto {
 	
 	private String nome;
-	private List<String> categorias;
-	private List<Versao> versoes;
-	private List<Projeto> subProjetos;
+	private List<String> categories;
 	
-	public List<Projeto> getSubProjetos() {
+	private List<SubProject> subProjetos;
+	
+	public List<SubProject> getSubProjetos() {
 		return subProjetos;
 	}
 
-	public void setSubProjetos(List<Projeto> subProjetos) {
+	public void setSubProjetos(List<SubProject> subProjetos) {
 		this.subProjetos = subProjetos;
 	}
 
 	public Projeto (String nome){
-		versoes = new ArrayList<Versao>();
-		categorias = new ArrayList<String>();
-		subProjetos = new ArrayList<Projeto>();
+		//versoes = new ArrayList<Versao>();
+		categories = new ArrayList<String>();
+		subProjetos = new ArrayList<SubProject>();
 		this.nome = nome;
 		
 	}
 	
-	public List<Versao> getVersoes() {
-		return versoes;
+//	public List<Versao> getVersoes() {
+//		return versoes;
+//	}
+//
+//	public void setVersoes(List<Versao> versoes) {
+//		this.versoes = versoes;
+//	}	
+
+	public List<String> getCategories() {
+		return categories;
 	}
 
-	public void setVersoes(List<Versao> versoes) {
-		this.versoes = versoes;
-	}	
-
-	public List<String> getCategoria() {
-		return categorias;
-	}
-
-	public void setCategoria(List<String> categoria) {
-		this.categorias = categoria;
+	public void setCategorie(List<String> categoria) {
+		this.categories = categoria;
 	}
 
 	public String getNome() {
@@ -58,7 +58,7 @@ public class Projeto {
 	
 	@Override
 	public String toString() {
-		String projetoString = nome +" " + categorias.toString() +" "+ versoes.toString();
+		String projetoString = nome +" " + categories.toString() +" "+ subProjetos.toString();
 		return super.toString() +" "+ projetoString;
 	}
 

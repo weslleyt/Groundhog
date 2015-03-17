@@ -14,8 +14,8 @@ public class JSS {
 		
 		String dominioSourceFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/Dominio/DominioProjetos";
 		String logSourceFolder ="C:/Users/BenitoAvell/Documents/mestrado/JSS/log/";
-		//String logSourceFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/LogProjetos2015Final/";		
-		String rootDestinyFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResumoCaracteristicas/";
+		String concurrentProjectListFilePath = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResultadoMetricas/Geral/Lines of CodeProjectNameHasMetric.csv";		
+		String rootDestinyFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResumoCaracteristicasV2/";
 		
 		try {
 			
@@ -26,6 +26,7 @@ public class JSS {
 			
 			fileSourceFolder = new File (logSourceFolder);			
 			processor.fillProjectVersions(fileSourceFolder,false,null);
+			processor.fillConcurrencyPropertie(new File(concurrentProjectListFilePath));
 			
 			for (Projeto projeto : processor.getProjetos()) {
 				
