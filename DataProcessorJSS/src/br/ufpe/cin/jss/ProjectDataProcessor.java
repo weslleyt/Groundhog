@@ -37,6 +37,21 @@ public class ProjectDataProcessor {
 		this.projetos = projetos;
 	} 
 	
+	public void fillProjects(String projectNamesFilePath ) throws IOException{
+		File projectNamesFile = new File(projectNamesFilePath);
+		
+		BufferedReader in = new BufferedReader(new FileReader(projectNamesFile));
+		
+		String nomeProjeto;
+		
+		while ((nomeProjeto = in.readLine()) != null){
+			Projeto projeto = new Projeto(nomeProjeto);
+			projetos.add(projeto);			
+		}
+		
+		in.close();
+	}
+	
 	
 	public void fillProjectsCategory(String dominioProjetosSourceFolder)
 			throws IOException {
@@ -59,11 +74,14 @@ public class ProjectDataProcessor {
 				if (projetos.contains(projeto))
 				{
 					projeto = projetos.get(projetos.indexOf(projeto));
-					projeto.getCategories().add(categoriesName);
-				}else {
+					
+					if (!projeto.getCategories().contains(categoriesName)){
+						projeto.getCategories().add(categoriesName);
+					}
+				}/*else {
 					projeto.getCategories().add(categoriesName);
 					projetos.add(projeto);
-				}			
+				}*/			
 				
 			}
 			
@@ -84,6 +102,8 @@ public class ProjectDataProcessor {
 					Projeto projeto = getProjectByName(nome);
 					if (projeto!=null){
 						nomeProjeto = nome;
+					} else {
+						continue;
 					}
 				}
 				
@@ -147,11 +167,17 @@ public class ProjectDataProcessor {
 					{
 						subProject = subProjetos.get(subProjetos.indexOf(subProject));
 						subProject.setConcurrent(true);
+					}else{
+						System.out.println("nao tem o subprojeto: "+project.getNome() +"_"+subProjectName);
 					}
+				} else{
+					System.out.println("nao tem o projeto: "+project);
 				}
 			}
 			
 		}
+		
+		in.close();
 		
 	}
 	

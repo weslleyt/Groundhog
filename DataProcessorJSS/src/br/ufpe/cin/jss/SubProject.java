@@ -29,5 +29,18 @@ public class SubProject extends Projeto{
 	public void setConcurrent(boolean isConcurrent) {
 		this.isConcurrent = isConcurrent;
 	}	
+	
+	public boolean hasVerionMoreThan1kLoC(){
+		boolean moreThan1kLoC = false;
+		
+		for (Versao versao : versions) {
+			if (versao.getLoc() > 1000){
+				moreThan1kLoC = true;
+				break;
+			}
+		}
+		
+		return moreThan1kLoC;
+	}
 
 }

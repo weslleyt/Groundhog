@@ -15,11 +15,12 @@ public class JSS {
 		String dominioSourceFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/Dominio/DominioProjetos";
 		String logSourceFolder ="C:/Users/BenitoAvell/Documents/mestrado/JSS/log/";
 		String concurrentProjectListFilePath = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResultadoMetricas/Geral/Lines of CodeProjectNameHasMetric.csv";		
-		String rootDestinyFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResumoCaracteristicasV2/";
-		
+		String rootDestinyFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResumoCaracteristicasV4/";
+		String projectNamesFilePath = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/projectsNames.txt";
 		try {
 			
 			ProjectDataProcessor processor = new ProjectDataProcessor();
+			processor.fillProjects(projectNamesFilePath);
 			processor.fillProjectsCategory(dominioSourceFolder);
 			
 			DataProjectFileManager fileManager = new DataProjectFileManager(rootDestinyFolder);
@@ -37,6 +38,7 @@ public class JSS {
 //				}	
 				
 				fileManager.writeProjectDataIntoCSV(projeto);
+				fileManager.writeSubProjectDataIntoCSV(projeto);
 							
 			}
 						
