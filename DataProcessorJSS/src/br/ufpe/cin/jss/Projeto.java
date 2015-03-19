@@ -6,7 +6,7 @@ import java.util.List;
 public class Projeto {
 	
 	private String nome;
-	private List<String> categories;
+	private List<Category> categories;
 	
 	private List<SubProject> subProjetos;
 	
@@ -20,7 +20,7 @@ public class Projeto {
 
 	public Projeto (String nome){
 		//versoes = new ArrayList<Versao>();
-		categories = new ArrayList<String>();
+		categories = new ArrayList<Category>();
 		subProjetos = new ArrayList<SubProject>();
 		this.nome = nome;
 		
@@ -34,12 +34,12 @@ public class Projeto {
 //		this.versoes = versoes;
 //	}	
 
-	public List<String> getCategories() {
+	public List<Category> getCategories() {
 		return categories;
 	}
 
-	public void setCategorie(List<String> categoria) {
-		this.categories = categoria;
+	public void setCategorie(List<Category> category) {
+		this.categories = category;
 	}
 
 	public String getNome() {

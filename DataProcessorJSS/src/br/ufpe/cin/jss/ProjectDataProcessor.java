@@ -2,40 +2,31 @@ package br.ufpe.cin.jss;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectDataProcessor {
 	
-	private List<Projeto> projetos;	
+	//private List<Projeto> projetos;	
+	private ProjectList projetos;
+	private CategoryList categoryList;
 
 	public ProjectDataProcessor() {
 		super();
-		projetos = new ArrayList<Projeto>();
+		projetos = new ProjectList();
+		categoryList = new CategoryList();
 	}
 
-	public List<Projeto> getProjetos() {
+	public ProjectList getProjetos() {
 		return projetos;
 	}
 	
-	public Projeto getProjectByName(String nome){
-		Projeto proj = null;
-		for (Projeto projeto : projetos) {
-			if (projeto.getNome().equals(nome))
-				proj = projeto;
-		}
-		
-		return proj;
-		
-		//return projetos.get(projetos.indexOf(new Projeto(nome)));
-	}
+	
 
-	public void setProjetos(List<Projeto> projetos) {
-		this.projetos = projetos;
-	} 
+//	public void setProjetos(List<Projeto> projetos) {
+//		this.projetos = new ;
+//	} 
 	
 	public void fillProjects(String projectNamesFilePath ) throws IOException{
 		File projectNamesFile = new File(projectNamesFilePath);
@@ -46,7 +37,7 @@ public class ProjectDataProcessor {
 		
 		while ((nomeProjeto = in.readLine()) != null){
 			Projeto projeto = new Projeto(nomeProjeto);
-			projetos.add(projeto);			
+			projetos.getProjetos().add(projeto);			
 		}
 		
 		in.close();
@@ -61,8 +52,11 @@ public class ProjectDataProcessor {
 
 		for (int i = 0; i < categoriasFiles.length; i++) {	
 			
-			String categoriesName = categoriasFiles[i].getName().substring(0,
+			String categoryName = categoriasFiles[i].getName().substring(0,
 					categoriasFiles[i].getName().length() - extention.length());
+			
+			Category category = new Category(categoryName);
+			categoryList.getCategories().add(category);
 			
 			BufferedReader in = new BufferedReader(new FileReader(categoriasFiles[i]));
 			String nomeProjeto;
@@ -71,12 +65,12 @@ public class ProjectDataProcessor {
 				
 				Projeto projeto = new Projeto(nomeProjeto);
 				
-				if (projetos.contains(projeto))
+				if (projetos.getProjetos().contains(projeto))
 				{
-					projeto = projetos.get(projetos.indexOf(projeto));
+					projeto = projetos.getProjetos().get(projetos.getProjetos().indexOf(projeto));
 					
-					if (!projeto.getCategories().contains(categoriesName)){
-						projeto.getCategories().add(categoriesName);
+					if (!projeto.getCategories().contains(category)){
+						projeto.getCategories().add(category);
 					}
 				}/*else {
 					projeto.getCategories().add(categoriesName);
@@ -99,7 +93,7 @@ public class ProjectDataProcessor {
 				
 				if (nomeProjeto==null || subFiles.length >1000){
 					String nome = subFiles[i].getName();
-					Projeto projeto = getProjectByName(nome);
+					Projeto projeto = projetos.getProjectByName(nome);
 					if (projeto!=null){
 						nomeProjeto = nome;
 					} else {
@@ -118,7 +112,7 @@ public class ProjectDataProcessor {
 //						ArrayList<File> files = new ArrayList<File>();
 //						files.add(subFiles[i]);
 					
-					Projeto projeto = getProjectByName(nomeProjeto);
+					Projeto projeto = projetos.getProjectByName(nomeProjeto);
 					
 					SubProject subProjeto = new SubProject(subFiles[i].getParentFile().getName());
 					if(!projeto.getSubProjetos().contains(subProjeto)){
@@ -156,9 +150,9 @@ public class ProjectDataProcessor {
 				
 				project = new Projeto(projectName);
 				
-				if (projetos.contains(project))
+				if (projetos.getProjetos().contains(project))
 				{
-					project = projetos.get(projetos.indexOf(project));
+					project = projetos.getProjetos().get(projetos.getProjetos().indexOf(project));
 					subProject = new SubProject(subProjectName);
 					
 					List<SubProject> subProjetos = project.getSubProjetos();

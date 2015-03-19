@@ -15,7 +15,7 @@ public class JSS {
 		String dominioSourceFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/Dominio/DominioProjetos";
 		String logSourceFolder ="C:/Users/BenitoAvell/Documents/mestrado/JSS/log/";
 		String concurrentProjectListFilePath = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResultadoMetricas/Geral/Lines of CodeProjectNameHasMetric.csv";		
-		String rootDestinyFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResumoCaracteristicasV4/";
+		String rootDestinyFolder = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/ResumoCaracteristicasV6/";
 		String projectNamesFilePath = "C:/Users/BenitoAvell/Google Drive/jss/ArtigoGroundHogJSS/Dados/projectsNames.txt";
 		try {
 			
@@ -29,7 +29,18 @@ public class JSS {
 			processor.fillProjectVersions(fileSourceFolder,false,null);
 			processor.fillConcurrencyPropertie(new File(concurrentProjectListFilePath));
 			
-			for (Projeto projeto : processor.getProjetos()) {
+			System.out.println("CONCURRENT");
+			for (Category category : processor.getProjetos().getCategoriesFromProjects(true)) {
+				System.out.println(category.getName()+";"+category.getConcurrentTimes());
+			}
+			
+			System.out.println("NON-CONCURRENT");
+			for (Category category : processor.getProjetos().getCategoriesFromProjects(false)) {
+				System.out.println(category.getName()+";"+category.getNonConcurrentTimes());
+			}
+			
+			
+			for (Projeto projeto : processor.getProjetos().getProjetos()) {
 				
 //				for (Projeto sub : projeto.getSubProjetos()) {
 //					for (Versao versao : sub.getVersoes()) {
