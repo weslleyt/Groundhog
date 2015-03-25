@@ -1,8 +1,15 @@
 package br.ufpe.cin.jss;
 
+import java.util.ArrayList;
+
 public class Category {
 	
 	private String name;
+	private Integer concurrentTimes;
+	private Integer nonConcurrentTimes;
+	private ArrayList<Projeto> listaProjetos = new ArrayList<Projeto>();
+	
+	
 	public Category(String categoryName) {
 		this.name = categoryName;
 		this.concurrentTimes = 0;
@@ -45,8 +52,20 @@ public class Category {
 		this.nonConcurrentTimes = nonConcurrentTimes;
 	}
 	
-	private Integer concurrentTimes;
-	private Integer nonConcurrentTimes;
+	
+	
+	public ArrayList<Projeto> getListaProjetos() {
+		return listaProjetos;
+	}
+
+	public void setListaProjetos(ArrayList<Projeto> listaProjetos) {
+		this.listaProjetos = listaProjetos;
+	}
+	
+	public void adicionarProjeto(Projeto projeto) {
+		listaProjetos.add(projeto);
+	}
+	
 	
 	@Override
 	public boolean equals(Object obj) {

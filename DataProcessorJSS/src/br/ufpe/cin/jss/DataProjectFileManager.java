@@ -58,7 +58,7 @@ public class DataProjectFileManager {
         out.close();
 	}
 	
-public void writeSubProjectDataIntoCSV(Projeto projeto) throws IOException{
+	public void writeSubProjectDataIntoCSV(Projeto projeto) throws IOException{
 		
 		File concurrentDestinyFolderFile = new File(destinyFolder+"Concurrent");
 		File nonConcurrentDestinyFolderFile = new File(destinyFolder+"NonConcurrent");
@@ -93,19 +93,26 @@ public void writeSubProjectDataIntoCSV(Projeto projeto) throws IOException{
 	            out.write(projeto.getNome() + ";" + projeto.getCategories());  
 	            
 	            out.newLine();
-	        	 out.write(";;"+sub.getNome()+";"+sub.getVersions().size()+";"+sub.isConcurrent());
-	        	 out.newLine();
-	        	 for (Versao version : sub.getVersions()) {
+	        	out.write(";;"+sub.getNome()+";"+sub.getVersions().size()+";"+sub.isConcurrent());
+	        	 
+	        	 
+	        	 
+	        	out.newLine();
+	        	for (Versao version : sub.getVersions()) {
 	        		 out.write(";;;;;"+version.getIdentificador()+";"+version.getnClasses()+";"+version.getnMetodos()+";"+version.getLoc());
 	        		 out.newLine();
 				}
 	        	 
-	        	 out.flush();
-	             out.close();
+	        	out.flush();
+	            out.close();
         	}
 		}
        
         
        
 	}
+	
+	
+
+
 }

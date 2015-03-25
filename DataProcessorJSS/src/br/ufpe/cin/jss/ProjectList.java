@@ -41,6 +41,10 @@ public class ProjectList {
 						
 						//Category cat = new Category(category.getName());
 						if(category!=null){
+							
+							//TODO: nao fazer isso aqui
+							category.adicionarProjeto(projeto);
+							
 							if (!categories.contains(category)) {
 								categories.add(category);							
 							}

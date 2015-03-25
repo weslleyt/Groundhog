@@ -4,19 +4,24 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedHashMap;
 
 public class Versao {
 
+	private static final int NORMALIZING_FACTOR = 100000;
 	private File versaoLog;
 	private String identificador;	
 	private Integer nClasses; 
 	private Integer nMetodos;
 	private Integer loc;
 	
+	private LinkedHashMap<String, Integer> metrics;	
 	
+
 	public Versao(File versaoLog) throws NumberFormatException, IOException{
 		this.versaoLog = versaoLog;
-		this.identificador = versaoLog.getName();	
+		this.identificador = versaoLog.getName();
+		this.metrics = new LinkedHashMap<String, Integer>();
 		fillVersao();
 	}
 
@@ -62,6 +67,13 @@ public class Versao {
 		this.versaoLog = versaoLog;
 	}
 	
+	/**
+	 * @return the metricas
+	 */
+	public LinkedHashMap<String, Integer> getMetricas() {
+		return metrics;
+	}	
+	
 	private void fillVersao() throws NumberFormatException, IOException {
 		
 		BufferedReader in = new BufferedReader(new FileReader(this.versaoLog));
@@ -72,7 +84,8 @@ public class Versao {
 			
 			Integer value = Integer.parseInt(splitMetrics[1].trim());
 			
-			switch (splitMetrics[0].trim()) {
+			String metricName = splitMetrics[0].trim();
+			switch (metricName) {
 			case "classes":
 				this.nClasses = value;				
 				break;
@@ -84,12 +97,21 @@ public class Versao {
 				break;
 
 			default:
+				metrics.put(metricName, value);
 				break;
 			}
 		}
 		
-		in.close();
-		
+		in.close();		
+	}
+	
+	public Double getNormalizedMetric(String metricName){
+		double value;
+		if(metrics.get(metricName)!=null){
+			value = (metrics.get(metricName).doubleValue()/this.getLoc())*NORMALIZING_FACTOR;
+			return value;
+		}
+		return null;		
 	}
 	
 }

@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectDataProcessor {
@@ -173,6 +174,22 @@ public class ProjectDataProcessor {
 		
 		in.close();
 		
+	}
+	
+	public static ArrayList<String> getMetricNames(String path) throws IOException{
+		ArrayList<String> names = new ArrayList<String>();
+		
+		
+		BufferedReader in = new BufferedReader(new FileReader(new File(path)));
+		String str;
+		
+		while ((str = in.readLine()) != null) {
+			names.add(str.split(":")[0].trim());
+		}
+		
+		in.close();
+		
+		return names;
 	}
 	
 	
