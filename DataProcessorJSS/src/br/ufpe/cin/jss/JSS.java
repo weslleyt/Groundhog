@@ -40,32 +40,37 @@ public class JSS {
 			List<Category> categoriaConcorrente = processor.getProjetos().getCategoriesFromProjects(true);
 			List<Category> categoriaNaoConcorrente = processor.getProjetos().getCategoriesFromProjects(false);
 			
-			gerarArquivoCsv(destinyFolderDomain, categoriaConcorrente, true);
+			//gerarArquivoCsv(destinyFolderDomain, categoriaConcorrente, true);
+			gerarArquivosParaCorrelação(destinyFolderDomain, categoriaConcorrente, true,"HashMap","ConcurrentHashMap");
+			gerarArquivosParaCorrelação(destinyFolderDomain, categoriaConcorrente, true,"Hashtable","ConcurrentHashMap");
+			gerarArquivosParaCorrelação(destinyFolderDomain, categoriaConcorrente, true,"HashMap","Hashtable");
+			gerarArquivosParaCorrelação(destinyFolderDomain, categoriaConcorrente, true,"sync methods","Juc.Locks");
+			gerarArquivosParaCorrelação(destinyFolderDomain, categoriaConcorrente, true,"sync blocks","Juc.Locks");
 
 			
-			System.out.println("CONCURRENT");
-			for (Category category : categoriaConcorrente) {
-				System.out.println(category.getName()+";"+category.getConcurrentTimes());
-			}
-			
-			System.out.println("NON-CONCURRENT");
-			for (Category category : categoriaNaoConcorrente) {
-				System.out.println(category.getName()+";"+category.getNonConcurrentTimes());
-			}
-			
-			
-			for (Projeto projeto : processor.getProjetos().getProjetos()) {
-				
-//				for (Projeto sub : projeto.getSubProjetos()) {
-//					for (Versao versao : sub.getVersoes()) {
-//						System.out.println(projeto.toString() +" "+ sub.toString() +" "+ versao.getVersaoLog().getName());
-//					}
-//				}	
-				
-				fileManager.writeProjectDataIntoCSV(projeto);
-				fileManager.writeSubProjectDataIntoCSV(projeto);
-							
-			}
+//			System.out.println("CONCURRENT");
+//			for (Category category : categoriaConcorrente) {
+//				System.out.println(category.getName()+";"+category.getConcurrentTimes());
+//			}
+//			
+//			System.out.println("NON-CONCURRENT");
+//			for (Category category : categoriaNaoConcorrente) {
+//				System.out.println(category.getName()+";"+category.getNonConcurrentTimes());
+//			}
+//			
+//			
+//			for (Projeto projeto : processor.getProjetos().getProjetos()) {
+//				
+////				for (Projeto sub : projeto.getSubProjetos()) {
+////					for (Versao versao : sub.getVersoes()) {
+////						System.out.println(projeto.toString() +" "+ sub.toString() +" "+ versao.getVersaoLog().getName());
+////					}
+////				}	
+//				
+//				fileManager.writeProjectDataIntoCSV(projeto);
+//				fileManager.writeSubProjectDataIntoCSV(projeto);
+//							
+//			}
 						
 			
 		} catch (IOException e) {
@@ -91,6 +96,8 @@ public class JSS {
 
 		for (Category categoria: categorias) {
 			try {
+				
+				
 				FileWriter writer = new FileWriter(destino + categoria.getName() + ".csv");
 
 				writer.append("Projeto");
@@ -171,6 +178,126 @@ public class JSS {
 			}
 		}
 	}
+	
+	
+	private static void gerarArquivosParaCorrelação(String destino, List<Category> categorias, boolean concorrente, String metric1, String metric2) {
+
+		if (concorrente) {
+			destino = destino + "ConcurrentCorrelationTables" + "/";
+		} else {
+			destino = destino + "NonConcurrentCorrelationTables" + "/";
+		}
+		
+		
+
+		for (Category categoria: categorias) {
+			
+			
+			String destinoCategoriaDiretorio = destino + categoria.getName()+"/";
+			
+			File destinoFile = new File(destinoCategoriaDiretorio);
+			
+			if (!destinoFile.exists()){
+				destinoFile.mkdirs();
+			}
+			
+			
+			try {
+				
+				String categoryFileDestino = destinoCategoriaDiretorio + categoria.getName() +"_" + metric1 +"_" + metric2 + ".csv";
+				
+				FileWriter writer = new FileWriter(categoryFileDestino);
+
+				writer.append("Projeto");
+				writer.append(';');
+				writer.append(metric1);
+				writer.append(';');
+				writer.append(metric2);
+				writer.append(';');
+				
+				
+			
+				/*ArrayList<String> metricsNameArrayList = ProjectDataProcessor.getMetricNames(metricsNamesPath);
+				
+				for (String name : metricsNameArrayList) {
+					writer.append(name);
+					writer.append(';');
+				}*/			
+
+				writer.append('\n');
+
+				ArrayList<String> nomeProjetos = new ArrayList<String>();
+
+				for (Projeto projeto: categoria.getListaProjetos()) {
+
+					for (SubProject subprojeto: projeto.getSubProjetos()) {
+						for (int i = (subprojeto.getVersions().size() - 1); i >= 0; i--) {
+
+							if ((concorrente && subprojeto.getVersions().get(i).getLoc() >= 1000 && subprojeto.isConcurrent())
+									|| (!concorrente && subprojeto.getVersions().get(i).getLoc() >= 1000)) {
+
+								// gambi para nao adicionar o projeto mais de uma vez.
+								if (!nomeProjetos.contains(subprojeto.getNome() + subprojeto.getVersions().get(i).getIdentificador())
+										&& (subprojeto.isConcurrent() == concorrente)) {
+
+										// if (categoria.getName().equals("ScientificEngineering")) {
+										// System.out.println(projeto.getNome());
+										// }
+										
+										if(subprojeto.getVersions().get(i).getNormalizedMetric(metric1) != 0 && subprojeto.getVersions().get(i).getNormalizedMetric(metric2) != 0){
+	
+										writer.append(subprojeto.getVersions().get(i).getIdentificador());
+										writer.append(';');
+										//writer.append(Integer.toString(subprojeto.getVersions().get(i).getLoc()));
+										//writer.append(';');
+										
+										//LinkedHashMap<String, Integer> metricas = subprojeto.getVersions().get(i).getMetricas();
+										
+										
+											
+											Double normalizedValue = subprojeto.getVersions().get(i).getNormalizedMetric(metric1);
+											
+											//Integer value = metricas.get(normalizedValue);
+											
+											if (normalizedValue != null){
+												String valueString = String.format("%.2f",normalizedValue);
+												writer.append(valueString);
+												//writer.append(Double.toString(normalizedValue));
+												
+											}
+											
+											writer.append(';');
+									
+											normalizedValue = subprojeto.getVersions().get(i).getNormalizedMetric(metric2);
+											if (normalizedValue != null){
+												String valueString = String.format("%.2f",normalizedValue);
+												writer.append(valueString);
+												//writer.append(Double.toString(normalizedValue));
+												
+											}		
+										
+	
+										writer.append('\n');
+									}
+
+									nomeProjetos.add(subprojeto.getNome() + subprojeto.getVersions().get(i).getIdentificador());
+
+								}
+								break;
+							}
+						}
+					}
+
+				}
+
+				writer.flush();
+				writer.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
 	
 	
 	
